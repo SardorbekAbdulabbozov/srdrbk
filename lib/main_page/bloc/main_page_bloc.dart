@@ -12,19 +12,8 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
   final MainPageRepostiory _landingPageRepostiory;
 
   MainPageBloc(this._landingPageRepostiory) : super(const MainPageState()) {
-    on<ChangeSection>(_changeSection);
     on<ChangeLocale>(_changeLocale);
     on<Initialize>(_initialize);
-  }
-
-  Future<void> _changeSection(
-    ChangeSection event,
-    Emitter<MainPageState> emit,
-  ) async {
-    emit(state.copyWith(currentSectionIndex: event.index));
-    // state.mobileScrollController.animateTo(offset, duration: duration, curve: curve);
-    // state.desktopScrollController.animateTo(offset, duration: duration, curve: curve);
-    event.onPop?.call();
   }
 
   Future<void> _initialize(

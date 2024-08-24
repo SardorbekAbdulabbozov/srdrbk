@@ -29,8 +29,8 @@ class Storage {
   }
 
   ThemeMode getTheme() {
-    final index = _box.get(Keys.theme, defaultValue: ThemeMode.dark.index) ??
-        ThemeMode.dark.index;
+    final index = _box.get(Keys.theme, defaultValue: ThemeMode.system.index) ??
+        ThemeMode.system.index;
     return BaseFunctions.mapIndexToThemeMode(index);
   }
 

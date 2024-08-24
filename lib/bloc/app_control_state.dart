@@ -3,7 +3,7 @@ part of 'app_control_bloc.dart';
 class AppControlState extends Equatable {
   final ThemeMode themeMode;
 
-  const AppControlState({this.themeMode = ThemeMode.system});
+  const AppControlState({required this.themeMode});
 
   AppControlState copyWith({
     ThemeMode? themeMode,
