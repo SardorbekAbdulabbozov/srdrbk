@@ -218,12 +218,6 @@ class GetInTouchSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
-                onPressed: () {
-                  html.window.open(
-                    'https://github.com/SardorbekAbdulabbozov',
-                    "_blank",
-                  );
-                },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
                     BaseFunctions.isDarkMode(context)
@@ -231,9 +225,15 @@ class GetInTouchSection extends StatelessWidget {
                         : AppColors.grayLight50,
                   ),
                 ),
+                onPressed: () {
+                  html.window.open(
+                    'https://github.com/SardorbekAbdulabbozov',
+                    "_blank",
+                  );
+                },
                 icon: Center(
                   child: SvgPicture.asset(
-                    'assets/vectors/github.svg',
+                    'assets/vectors/github2.svg',
                     width: 24,
                     height: 24,
                     colorFilter: ColorFilter.mode(
@@ -248,12 +248,6 @@ class GetInTouchSection extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4),
                 child: IconButton(
-                  onPressed: () {
-                    html.window.open(
-                      'https://www.linkedin.com/in/sardorbek-abdulabbozov/',
-                      "_blank",
-                    );
-                  },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
                       BaseFunctions.isDarkMode(context)
@@ -261,11 +255,15 @@ class GetInTouchSection extends StatelessWidget {
                           : AppColors.grayLight50,
                     ),
                   ),
+                  onPressed: () {
+                    html.window
+                        .open('https://t.me/abdulabbozov_s', "_blank");
+                  },
                   icon: Center(
                     child: SvgPicture.asset(
-                      'assets/vectors/linkedin.svg',
-                      width: 22,
-                      height: 22,
+                      'assets/vectors/telegram3.svg',
+                      width: 26,
+                      height: 26,
                       colorFilter: ColorFilter.mode(
                         BaseFunctions.isDarkMode(context)
                             ? AppColors.grayDark600
@@ -277,9 +275,6 @@ class GetInTouchSection extends StatelessWidget {
                 ),
               ),
               IconButton(
-                onPressed: () {
-                  html.window.open('https://t.me/abdulabbozov_s', "_blank");
-                },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
                     BaseFunctions.isDarkMode(context)
@@ -287,11 +282,17 @@ class GetInTouchSection extends StatelessWidget {
                         : AppColors.grayLight50,
                   ),
                 ),
+                onPressed: () {
+                  html.window.open(
+                    'https://www.linkedin.com/in/sardorbek-abdulabbozov/',
+                    "_blank",
+                  );
+                },
                 icon: Center(
                   child: SvgPicture.asset(
-                    'assets/vectors/telegram2.svg',
-                    width: 24,
-                    height: 24,
+                    'assets/vectors/linkedin2.svg',
+                    width: 32,
+                    height: 32,
                     colorFilter: ColorFilter.mode(
                       BaseFunctions.isDarkMode(context)
                           ? AppColors.grayDark600
@@ -300,7 +301,7 @@ class GetInTouchSection extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ],

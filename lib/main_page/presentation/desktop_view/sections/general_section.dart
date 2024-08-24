@@ -126,7 +126,7 @@ class GeneralSection extends StatelessWidget {
                         },
                         icon: Center(
                           child: SvgPicture.asset(
-                            'assets/vectors/github.svg',
+                            'assets/vectors/github2.svg',
                             width: 24,
                             height: 24,
                             colorFilter: ColorFilter.mode(
@@ -142,37 +142,45 @@ class GeneralSection extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 4),
                         child: IconButton(
                           onPressed: () {
-                            html.window.open(
-                              'https://www.linkedin.com/in/sardorbek-abdulabbozov/',
-                              "_blank",
-                            );
+                            html.window
+                                .open('https://t.me/abdulabbozov_s', "_blank");
                           },
                           icon: Center(
                             child: SvgPicture.asset(
-                              BaseFunctions.isDarkMode(context)
-                                  ? 'assets/vectors/linkedin_dark.svg'
-                                  : 'assets/vectors/linkedin_light.svg',
-                              width: 22,
-                              height: 22,
+                              'assets/vectors/telegram3.svg',
+                              width: 26,
+                              height: 26,
+                              colorFilter: ColorFilter.mode(
+                                BaseFunctions.isDarkMode(context)
+                                    ? AppColors.grayDark600
+                                    : AppColors.grayLight600,
+                                BlendMode.srcIn,
+                              ),
                             ),
                           ),
                         ),
                       ),
                       IconButton(
                         onPressed: () {
-                          html.window
-                              .open('https://t.me/abdulabbozov_s', "_blank");
+                          html.window.open(
+                            'https://www.linkedin.com/in/sardorbek-abdulabbozov/',
+                            "_blank",
+                          );
                         },
                         icon: Center(
                           child: SvgPicture.asset(
-                            BaseFunctions.isDarkMode(context)
-                                ? 'assets/vectors/telegram2_dark.svg'
-                                : 'assets/vectors/telegram2_light.svg',
-                            width: 24,
-                            height: 24,
+                            'assets/vectors/linkedin2.svg',
+                            width: 32,
+                            height: 32,
+                            colorFilter: ColorFilter.mode(
+                              BaseFunctions.isDarkMode(context)
+                                  ? AppColors.grayDark600
+                                  : AppColors.grayLight600,
+                              BlendMode.srcIn,
+                            ),
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ],
