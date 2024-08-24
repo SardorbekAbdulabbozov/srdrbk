@@ -49,6 +49,7 @@ class ProjectsSection extends StatelessWidget {
           ListView.separated(
             itemCount: list.length,
             shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, i) {
               return Column(
                 mainAxisSize: MainAxisSize.min,

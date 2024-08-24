@@ -46,6 +46,7 @@ class ExperienceSection extends StatelessWidget {
           ),
           ListView.separated(
             shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: list.length,
             itemBuilder: (context, i) {
               return Container(
