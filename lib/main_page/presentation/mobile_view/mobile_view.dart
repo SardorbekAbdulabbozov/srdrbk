@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:srdrbk/bloc/app_control_bloc.dart';
-import 'package:srdrbk/components/extension/app_extensions.dart';
 import 'package:srdrbk/components/global_variables.dart';
 import 'package:srdrbk/components/widgets/action_button.dart';
 import 'package:srdrbk/core/base_functions/base_functions.dart';
@@ -265,14 +264,11 @@ class MobileView extends StatelessWidget {
           slivers: [
             SliverToBoxAdapter(
               key: mobileGeneralSectionKey,
-              child: GeneralSection(image: state.images.firstIfNotEmpty ?? ""),
+              child: const GeneralSection(),
             ),
             SliverToBoxAdapter(
               key: mobileAboutMeSectionKey,
-              child: AboutMeSection(
-                aboutMe: state.overviewAboutMe,
-                image: state.images.lastIfNotEmpty ?? "",
-              ),
+              child: AboutMeSection(aboutMe: state.overviewAboutMe),
             ),
             const SliverToBoxAdapter(child: SkillsSection()),
             SliverToBoxAdapter(

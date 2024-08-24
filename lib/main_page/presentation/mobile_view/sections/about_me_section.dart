@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:srdrbk/core/base_functions/base_functions.dart';
@@ -7,10 +6,9 @@ import 'package:srdrbk/core/theme/colors/app_colors.dart';
 import 'package:srdrbk/core/theme/text_styles/app_text_styles.dart';
 
 class AboutMeSection extends StatelessWidget {
-  const AboutMeSection({super.key, this.aboutMe, required this.image});
+  const AboutMeSection({super.key, this.aboutMe});
 
   final String? aboutMe;
-  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -79,22 +77,8 @@ class AboutMeSection extends StatelessWidget {
                             color: BaseFunctions.isDarkMode(context)
                                 ? AppColors.grayDark200
                                 : AppColors.grayLight200,
-                            child: CachedNetworkImage(
-                              imageUrl: image,
-                              placeholder: (context, url) => Center(
-                                child: Image.asset(
-                                  BaseFunctions.isDarkMode(context)
-                                      ? "assets/images/signature_white.png"
-                                      : "assets/images/signature_black.png",
-                                ),
-                              ),
-                              errorWidget: (context, error, stackTrace) => Center(
-                                child: Image.asset(
-                                  BaseFunctions.isDarkMode(context)
-                                      ? "assets/images/signature_white.png"
-                                      : "assets/images/signature_black.png",
-                                ),
-                              ),
+                            child: Image.asset(
+                              'assets/images/photo2.jpeg',
                               fit: BoxFit.cover,
                             ),
                           ),
