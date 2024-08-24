@@ -152,12 +152,9 @@ class GeneralSection extends StatelessWidget {
                               'assets/vectors/linkedin.svg',
                               width: 22,
                               height: 22,
-                              colorFilter: ColorFilter.mode(
-                                BaseFunctions.isDarkMode(context)
-                                    ? AppColors.grayDark600
-                                    : AppColors.grayLight600,
-                                BlendMode.srcIn,
-                              ),
+                              color: BaseFunctions.isDarkMode(context)
+                                  ? AppColors.grayDark600
+                                  : AppColors.grayLight600,
                             ),
                           ),
                         ),
@@ -172,12 +169,9 @@ class GeneralSection extends StatelessWidget {
                             'assets/vectors/telegram2.svg',
                             width: 24,
                             height: 24,
-                            colorFilter: ColorFilter.mode(
-                              BaseFunctions.isDarkMode(context)
-                                  ? AppColors.grayDark600
-                                  : AppColors.grayLight600,
-                              BlendMode.srcIn,
-                            ),
+                            color: BaseFunctions.isDarkMode(context)
+                                ? AppColors.grayDark600
+                                : AppColors.grayLight600,
                           ),
                         ),
                       )
