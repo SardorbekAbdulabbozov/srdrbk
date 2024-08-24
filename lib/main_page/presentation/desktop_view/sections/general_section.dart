@@ -125,16 +125,13 @@ class GeneralSection extends StatelessWidget {
                           );
                         },
                         icon: Center(
-                          child: SvgPicture.asset(
-                            'assets/vectors/github2.svg',
+                          child: Image.asset(
+                            'assets/images/github.png',
                             width: 24,
                             height: 24,
-                            colorFilter: ColorFilter.mode(
-                              BaseFunctions.isDarkMode(context)
-                                  ? AppColors.grayDark600
-                                  : AppColors.grayLight600,
-                              BlendMode.srcIn,
-                            ),
+                            color: BaseFunctions.isDarkMode(context)
+                                ? AppColors.grayDark600
+                                : AppColors.grayLight600,
                           ),
                         ),
                       ),
@@ -142,42 +139,36 @@ class GeneralSection extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 4),
                         child: IconButton(
                           onPressed: () {
-                            html.window
-                                .open('https://t.me/abdulabbozov_s', "_blank");
+                            html.window.open(
+                              'https://www.linkedin.com/in/sardorbek-abdulabbozov/',
+                              "_blank",
+                            );
                           },
                           icon: Center(
-                            child: SvgPicture.asset(
-                              'assets/vectors/telegram3.svg',
-                              width: 26,
-                              height: 26,
-                              colorFilter: ColorFilter.mode(
-                                BaseFunctions.isDarkMode(context)
-                                    ? AppColors.grayDark600
-                                    : AppColors.grayLight600,
-                                BlendMode.srcIn,
-                              ),
+                            child: Image.asset(
+                              'assets/images/linkedin.png',
+                              width: 24,
+                              height: 24,
+                              color: BaseFunctions.isDarkMode(context)
+                                  ? AppColors.grayDark600
+                                  : AppColors.grayLight600,
                             ),
                           ),
                         ),
                       ),
                       IconButton(
                         onPressed: () {
-                          html.window.open(
-                            'https://www.linkedin.com/in/sardorbek-abdulabbozov/',
-                            "_blank",
-                          );
+                          html.window
+                              .open('https://t.me/abdulabbozov_s', "_blank");
                         },
                         icon: Center(
-                          child: SvgPicture.asset(
-                            'assets/vectors/linkedin2.svg',
-                            width: 32,
-                            height: 32,
-                            colorFilter: ColorFilter.mode(
-                              BaseFunctions.isDarkMode(context)
-                                  ? AppColors.grayDark600
-                                  : AppColors.grayLight600,
-                              BlendMode.srcIn,
-                            ),
+                          child: Image.asset(
+                            'assets/images/telegram2.png',
+                            width: 24,
+                            height: 24,
+                            color: BaseFunctions.isDarkMode(context)
+                                ? AppColors.grayDark600
+                                : AppColors.grayLight600,
                           ),
                         ),
                       ),
