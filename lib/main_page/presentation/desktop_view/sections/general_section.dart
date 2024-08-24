@@ -149,12 +149,11 @@ class GeneralSection extends StatelessWidget {
                           },
                           icon: Center(
                             child: SvgPicture.asset(
-                              'assets/vectors/linkedin.svg',
+                              BaseFunctions.isDarkMode(context)
+                                  ? 'assets/vectors/linkedin_dark.svg'
+                                  : 'assets/vectors/linkedin_light.svg',
                               width: 22,
                               height: 22,
-                              color: BaseFunctions.isDarkMode(context)
-                                  ? AppColors.grayDark600
-                                  : AppColors.grayLight600,
                             ),
                           ),
                         ),
@@ -166,12 +165,11 @@ class GeneralSection extends StatelessWidget {
                         },
                         icon: Center(
                           child: SvgPicture.asset(
-                            'assets/vectors/telegram2.svg',
+                            BaseFunctions.isDarkMode(context)
+                                ? 'assets/vectors/telegram2_dark.svg'
+                                : 'assets/vectors/telegram2_light.svg',
                             width: 24,
                             height: 24,
-                            color: BaseFunctions.isDarkMode(context)
-                                ? AppColors.grayDark600
-                                : AppColors.grayLight600,
                           ),
                         ),
                       )

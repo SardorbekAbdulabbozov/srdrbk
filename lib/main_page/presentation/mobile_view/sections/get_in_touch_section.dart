@@ -52,68 +52,14 @@ class GetInTouchSection extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SvgPicture.asset(
-                      'assets/vectors/email.svg',
-                      width: 24,
-                      height: 24,
-                      colorFilter: ColorFilter.mode(
-                        BaseFunctions.isDarkMode(context)
-                            ? AppColors.grayDark600
-                            : AppColors.grayLight600,
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
-                        "abdulabbozov.dev@gmail.com",
-                        style:
-                            AppTextStyles.mobileTabletHeading2SemiBold.copyWith(
-                          color: BaseFunctions.isDarkMode(context)
-                              ? AppColors.grayDark900
-                              : AppColors.grayLight900,
-                        ),
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () async {
-                        await Clipboard.setData(
-                          const ClipboardData(
-                            text: "abdulabbozov.dev@gmail.com",
-                          ),
-                        ).then(
-                          (value) => ScaffoldMessenger.of(
-                            scaffoldKeyMobile.currentContext!,
-                          ).showSnackBar(
-                            SnackBar(
-                              backgroundColor: BaseFunctions.isDarkMode(context)
-                                  ? AppColors.grayLightDefault
-                                  : AppColors.grayDarkDefault,
-                              duration: const Duration(seconds: 2),
-                              content: Text(
-                                'Copied to clipboard',
-                                style: AppTextStyles.allBody2Normal.copyWith(
-                                  color: BaseFunctions.isDarkMode(context)
-                                      ? AppColors.grayDarkDefault
-                                      : AppColors.grayLightDefault,
-                                ),
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          BaseFunctions.isDarkMode(context)
-                              ? AppColors.grayDark50
-                              : AppColors.grayLight50,
-                        ),
-                      ),
-                      icon: SvgPicture.asset(
-                        'assets/vectors/copy.svg',
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  physics: const ClampingScrollPhysics(),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SvgPicture.asset(
+                        'assets/vectors/email.svg',
                         width: 24,
                         height: 24,
                         colorFilter: ColorFilter.mode(
@@ -123,73 +69,79 @@ class GetInTouchSection extends StatelessWidget {
                           BlendMode.srcIn,
                         ),
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Text(
+                          "abdulabbozov.dev@gmail.com",
+                          style:
+                              AppTextStyles.mobileTabletHeading2SemiBold.copyWith(
+                            color: BaseFunctions.isDarkMode(context)
+                                ? AppColors.grayDark900
+                                : AppColors.grayLight900,
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () async {
+                          await Clipboard.setData(
+                            const ClipboardData(
+                              text: "abdulabbozov.dev@gmail.com",
+                            ),
+                          ).then(
+                            (value) => ScaffoldMessenger.of(
+                              scaffoldKeyMobile.currentContext!,
+                            ).showSnackBar(
+                              SnackBar(
+                                backgroundColor: BaseFunctions.isDarkMode(context)
+                                    ? AppColors.grayLightDefault
+                                    : AppColors.grayDarkDefault,
+                                duration: const Duration(seconds: 2),
+                                content: Text(
+                                  'Copied to clipboard',
+                                  style: AppTextStyles.allBody2Normal.copyWith(
+                                    color: BaseFunctions.isDarkMode(context)
+                                        ? AppColors.grayDarkDefault
+                                        : AppColors.grayLightDefault,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                            BaseFunctions.isDarkMode(context)
+                                ? AppColors.grayDark50
+                                : AppColors.grayLight50,
+                          ),
+                        ),
+                        icon: SvgPicture.asset(
+                          'assets/vectors/copy.svg',
+                          width: 24,
+                          height: 24,
+                          colorFilter: ColorFilter.mode(
+                            BaseFunctions.isDarkMode(context)
+                                ? AppColors.grayDark600
+                                : AppColors.grayLight600,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 16),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SvgPicture.asset(
-                      'assets/vectors/phone.svg',
-                      width: 24,
-                      height: 24,
-                      colorFilter: ColorFilter.mode(
-                        BaseFunctions.isDarkMode(context)
-                            ? AppColors.grayDark600
-                            : AppColors.grayLight600,
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
-                        "+998 90-912-15-50",
-                        style:
-                            AppTextStyles.mobileTabletHeading2SemiBold.copyWith(
-                          color: BaseFunctions.isDarkMode(context)
-                              ? AppColors.grayDark900
-                              : AppColors.grayLight900,
-                        ),
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () async {
-                        await Clipboard.setData(
-                          const ClipboardData(text: "+998909121550"),
-                        ).then(
-                          (value) => ScaffoldMessenger.of(
-                            scaffoldKeyMobile.currentContext!,
-                          ).showSnackBar(
-                            SnackBar(
-                              backgroundColor: BaseFunctions.isDarkMode(context)
-                                  ? AppColors.grayLightDefault
-                                  : AppColors.grayDarkDefault,
-                              duration: const Duration(seconds: 2),
-                              content: Text(
-                                'Copied to clipboard',
-                                style: AppTextStyles.allBody2Normal.copyWith(
-                                  color: BaseFunctions.isDarkMode(context)
-                                      ? AppColors.grayDarkDefault
-                                      : AppColors.grayLightDefault,
-                                ),
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          BaseFunctions.isDarkMode(context)
-                              ? AppColors.grayDark50
-                              : AppColors.grayLight50,
-                        ),
-                      ),
-                      icon: SvgPicture.asset(
-                        'assets/vectors/copy.svg',
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  physics: const ClampingScrollPhysics(),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SvgPicture.asset(
+                        'assets/vectors/phone.svg',
                         width: 24,
                         height: 24,
                         colorFilter: ColorFilter.mode(
@@ -199,8 +151,64 @@ class GetInTouchSection extends StatelessWidget {
                           BlendMode.srcIn,
                         ),
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Text(
+                          "+998 90-912-15-50",
+                          style:
+                              AppTextStyles.mobileTabletHeading2SemiBold.copyWith(
+                            color: BaseFunctions.isDarkMode(context)
+                                ? AppColors.grayDark900
+                                : AppColors.grayLight900,
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () async {
+                          await Clipboard.setData(
+                            const ClipboardData(text: "+998909121550"),
+                          ).then(
+                            (value) => ScaffoldMessenger.of(
+                              scaffoldKeyMobile.currentContext!,
+                            ).showSnackBar(
+                              SnackBar(
+                                backgroundColor: BaseFunctions.isDarkMode(context)
+                                    ? AppColors.grayLightDefault
+                                    : AppColors.grayDarkDefault,
+                                duration: const Duration(seconds: 2),
+                                content: Text(
+                                  'Copied to clipboard',
+                                  style: AppTextStyles.allBody2Normal.copyWith(
+                                    color: BaseFunctions.isDarkMode(context)
+                                        ? AppColors.grayDarkDefault
+                                        : AppColors.grayLightDefault,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                            BaseFunctions.isDarkMode(context)
+                                ? AppColors.grayDark50
+                                : AppColors.grayLight50,
+                          ),
+                        ),
+                        icon: SvgPicture.asset(
+                          'assets/vectors/copy.svg',
+                          width: 24,
+                          height: 24,
+                          colorFilter: ColorFilter.mode(
+                            BaseFunctions.isDarkMode(context)
+                                ? AppColors.grayDark600
+                                : AppColors.grayLight600,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

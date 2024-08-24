@@ -74,28 +74,32 @@ class GeneralSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: Text(
-                        'Hi, I’m Sardorbek',
-                        style: AppTextStyles.mobileHeading1SemiBold.copyWith(
-                          color: BaseFunctions.isDarkMode(context)
-                              ? AppColors.grayDark900
-                              : AppColors.grayLight900,
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  physics: const ClampingScrollPhysics(),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: Text(
+                          'Hi, I’m Sardorbek',
+                          style: AppTextStyles.mobileHeading1SemiBold.copyWith(
+                            color: BaseFunctions.isDarkMode(context)
+                                ? AppColors.grayDark900
+                                : AppColors.grayLight900,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
                         ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
                       ),
-                    ),
-                    SvgPicture.asset(
-                      'assets/vectors/wavingHand.svg',
-                      height: 48,
-                      width: 48,
-                    ),
-                  ],
+                      SvgPicture.asset(
+                        'assets/vectors/wavingHand.svg',
+                        height: 48,
+                        width: 48,
+                      ),
+                    ],
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
@@ -199,12 +203,11 @@ class GeneralSection extends StatelessWidget {
                         },
                         icon: Center(
                           child: SvgPicture.asset(
-                            'assets/vectors/linkedin.svg',
+                            BaseFunctions.isDarkMode(context)
+                                ? 'assets/vectors/linkedin_dark.svg'
+                                : 'assets/vectors/linkedin_light.svg',
                             width: 22,
                             height: 22,
-                            color: BaseFunctions.isDarkMode(context)
-                                ? AppColors.grayDark600
-                                : AppColors.grayLight600,
                           ),
                         ),
                       ),
@@ -216,12 +219,11 @@ class GeneralSection extends StatelessWidget {
                       },
                       icon: Center(
                         child: SvgPicture.asset(
-                          'assets/vectors/telegram2.svg',
+                          BaseFunctions.isDarkMode(context)
+                              ? 'assets/vectors/telegram2_dark.svg'
+                              : 'assets/vectors/telegram2_light.svg',
                           width: 24,
                           height: 24,
-                          color: BaseFunctions.isDarkMode(context)
-                              ? AppColors.grayDark600
-                              : AppColors.grayLight600,
                         ),
                       ),
                     )
