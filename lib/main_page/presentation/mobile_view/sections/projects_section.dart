@@ -137,7 +137,8 @@ class ProjectsSection extends StatelessWidget {
             list[i].technologiesUsed?.length ?? 0,
             (index) {
               return Chip(
-                padding: const EdgeInsets.symmetric(
+                padding: EdgeInsets.zero,
+                labelPadding: const EdgeInsets.symmetric(
                   vertical: 4,
                   horizontal: 20,
                 ),

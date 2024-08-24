@@ -9,4 +9,6 @@ abstract class MainPageRepostiory {
   Future<Either<Failure, List<Project>>> getProjectCollection();
 
   Future<Either<Failure, String>> getOverviewAboutMe();
+
+  Future<Either<Failure, List<String>>> getImages();
 }

@@ -7,6 +7,7 @@ class MainPageState extends Equatable {
     this.experienceCollection = const [],
     this.projectCollection = const [],
     this.overviewAboutMe,
+    this.images = const [],
   });
 
   final String locale;
@@ -14,6 +15,7 @@ class MainPageState extends Equatable {
   final List<Experience> experienceCollection;
   final List<Project> projectCollection;
   final String? overviewAboutMe;
+  final List<String> images;
 
   MainPageState copyWith({
     String? locale,
@@ -21,6 +23,7 @@ class MainPageState extends Equatable {
     List<Experience>? experienceCollection,
     List<Project>? projectCollection,
     String? overviewAboutMe,
+    List<String>? images,
   }) {
     return MainPageState(
       locale: locale ?? this.locale,
@@ -28,6 +31,7 @@ class MainPageState extends Equatable {
       experienceCollection: experienceCollection ?? this.experienceCollection,
       projectCollection: projectCollection ?? this.projectCollection,
       overviewAboutMe: overviewAboutMe ?? this.overviewAboutMe,
+      images: images ?? this.images,
     );
   }
 
@@ -38,5 +42,6 @@ class MainPageState extends Equatable {
         experienceCollection,
         projectCollection,
         overviewAboutMe,
+        images,
       ];
 }

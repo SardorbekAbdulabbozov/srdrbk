@@ -24,6 +24,7 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
     final locale = storageService.getLocale();
     List<Experience> experienceCollection = [];
     List<Project> projectCollection = [];
+    List<String> photoCollection = [];
     String overviewAboutMe = "";
 
     final experiences = await _landingPageRepostiory.getExperienceCollection();
@@ -50,6 +51,14 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
       },
     );
 
+    final images = await _landingPageRepostiory.getImages();
+    images.fold(
+      (left) {},
+      (right) {
+        photoCollection = right;
+      },
+    );
+
     emit(
       state.copyWith(
         locale: locale,
@@ -57,6 +66,7 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
         experienceCollection: experienceCollection,
         projectCollection: projectCollection,
         overviewAboutMe: overviewAboutMe,
+        images: photoCollection,
       ),
     );
   }

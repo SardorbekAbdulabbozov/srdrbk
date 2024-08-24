@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/foundation.dart';
 import 'package:srdrbk/components/extension/app_extensions.dart';
 import 'package:srdrbk/core/api_client/api_client.dart';
@@ -59,6 +61,28 @@ class MainPageRepostioryImpl extends MainPageRepostiory {
           .get();
       if (response.docs.isNotEmpty) {
         return Right(response.docs.firstIfNotEmpty?["aboutMe"] ?? '');
+      } else {
+        return const Left(ServerFailure(message: "No data found"));
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+      return Left(ServerFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<String>>> getImages() async {
+    try {
+      final response = await _apiClient.firestore
+          .collection(Constants.photoCollection)
+          .get();
+      List<String> images = [];
+      if (response.docs.isNotEmpty) {
+        for (var image
+            in response.docs.firstIfNotEmpty?.data()["photos"] ?? []) {
+          images.add(image);
+        }
+        return Right(images);
       } else {
         return const Left(ServerFailure(message: "No data found"));
       }
