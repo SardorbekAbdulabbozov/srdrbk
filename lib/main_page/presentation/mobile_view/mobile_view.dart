@@ -66,8 +66,11 @@ class MobileView extends StatelessWidget {
                       child: IconButton(
                         onPressed: () =>
                             scaffoldKeyMobile.currentState?.closeEndDrawer(),
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.close_rounded,
+                          color: BaseFunctions.isDarkMode(context)
+                              ? AppColors.grayDark600
+                              : AppColors.grayLight600,
                           size: 24,
                         ),
                       ),
