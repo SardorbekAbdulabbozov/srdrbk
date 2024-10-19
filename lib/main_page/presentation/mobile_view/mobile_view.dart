@@ -192,7 +192,7 @@ class MobileView extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     html.window.open(
-                      'https://docs.google.com/document/d/134KSqXpIRwDFzpjVGq3-do_iVoLi_1-nxSp0DE-bjGY/edit',
+                      'https://docs.google.com/document/d/1iDB74YH9u4ThiivFpklfGk73JDnMZuPcC9gIlotBEHo/edit?usp=sharing',
                       "_blank",
                     );
                   },
