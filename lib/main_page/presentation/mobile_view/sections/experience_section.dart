@@ -13,6 +13,7 @@ class ExperienceSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> responsibilitiesBullets = [];
     final size = MediaQuery.of(context).size;
     return Container(
       width: size.width,
@@ -49,6 +50,10 @@ class ExperienceSection extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             itemCount: list.length,
             itemBuilder: (context, i) {
+              if (list[i].responsibilities != null) {
+                responsibilitiesBullets =
+                    list[i].responsibilities!.split('###');
+              }
               return Container(
                 padding: const EdgeInsets.all(32),
                 decoration: BoxDecoration(
@@ -111,12 +116,22 @@ class ExperienceSection extends StatelessWidget {
                         if (list[i].responsibilities != null)
                           Padding(
                             padding: const EdgeInsets.only(top: 16),
-                            child: Text(
-                              list[i].responsibilities!,
-                              style: AppTextStyles.allBody2Normal.copyWith(
-                                color: BaseFunctions.isDarkMode(context)
-                                    ? AppColors.grayDark600
-                                    : AppColors.grayLight600,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: List.generate(
+                                responsibilitiesBullets.length,
+                                (index) {
+                                  return Text(
+                                    "• ${responsibilitiesBullets[index]}",
+                                    style:
+                                        AppTextStyles.allBody2Normal.copyWith(
+                                      color: BaseFunctions.isDarkMode(context)
+                                          ? AppColors.grayDark600
+                                          : AppColors.grayLight600,
+                                      // overflow: TextOverflow.ellipsis
+                                    ),
+                                  );
+                                },
                               ),
                             ),
                           ),
