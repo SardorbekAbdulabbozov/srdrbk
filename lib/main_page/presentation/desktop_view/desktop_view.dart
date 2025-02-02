@@ -172,11 +172,17 @@ class DesktopView extends StatelessWidget {
           slivers: [
             SliverToBoxAdapter(
               key: desktopGeneralSectionKey,
-              child: const GeneralSection(),
+              child: GeneralSection(
+                generalInfo: state.generalInfoContent,
+                mainPhoto: state.mainPhoto,
+              ),
             ),
             SliverToBoxAdapter(
               key: desktopAboutMeSectionKey,
-              child: AboutMeSection(aboutMe: state.overviewAboutMe),
+              child: AboutMeSection(
+                aboutMe: state.overviewAboutMe,
+                secondaryPhoto: state.secondaryPhoto,
+              ),
             ),
             const SliverToBoxAdapter(child: SkillsSection()),
             SliverToBoxAdapter(

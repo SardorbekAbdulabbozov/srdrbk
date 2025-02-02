@@ -36,12 +36,19 @@ class BaseFunctions {
         MediaQuery.of(context).size.width < 1146;
   }
 
-  static Future<void> scrollTo(BuildContext? context) async{
+  static Future<void> scrollTo(BuildContext? context) async {
     if (context == null) return;
     await Scrollable.ensureVisible(
       context,
       duration: const Duration(milliseconds: 1000),
       curve: Curves.easeOut,
     );
+  }
+
+  static double calculateExperienceInYears() {
+    int daysDifference =
+        DateTime.now().difference(DateTime(2021, 10, 1)).inDays;
+    double years = daysDifference / 365.25;
+    return (years * 2).round() / 2;
   }
 }

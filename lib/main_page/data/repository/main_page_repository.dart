@@ -11,4 +11,6 @@ abstract class MainPageRepostiory {
   Future<Either<Failure, String>> getOverviewAboutMe();
 
   Future<Either<Failure, List<String>>> getImages();
+
+  Future<Either<Failure, String>> getGeneralSectionInfo();
 }

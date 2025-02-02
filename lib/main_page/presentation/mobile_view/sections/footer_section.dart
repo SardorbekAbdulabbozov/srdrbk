@@ -42,7 +42,7 @@ class FooterSection extends StatelessWidget {
               ),
               RichText(
                 text: TextSpan(
-                  text: '2024 | Designed by ',
+                  text: '${DateTime.now().year} | Designed by ',
                   style: AppTextStyles.allBody3Normal.copyWith(
                     color: BaseFunctions.isDarkMode(context)
                         ? AppColors.grayDark600

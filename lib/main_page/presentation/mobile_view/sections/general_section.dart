@@ -7,8 +7,10 @@ import 'package:srdrbk/core/theme/colors/app_colors.dart';
 import 'package:srdrbk/core/theme/text_styles/app_text_styles.dart';
 
 class GeneralSection extends StatelessWidget {
-  const GeneralSection({super.key});
+  const GeneralSection({super.key, this.generalInfo, this.mainPhoto});
 
+  final String? generalInfo;
+  final String? mainPhoto;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +65,7 @@ class GeneralSection extends StatelessWidget {
                             ? AppColors.grayDark200
                             : AppColors.grayLight200,
                         child: Image.asset(
-                          'assets/images/photo1.jpg',
+                          'assets/images/${mainPhoto ?? "photo1.jpg"}',
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -110,7 +112,9 @@ class GeneralSection extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: Text(
-                    "Experienced Flutter Developer specializing in creating fast, accessible, visually appealing, and responsive cross-platform applications. With over 3 years of expertise, I have developed and contributed to a range of projects, including Android, iOS, AndroidTV, and Web applications using Flutter.",
+                    generalInfo?.replaceAll("***",
+                            "${BaseFunctions.calculateExperienceInYears()}") ??
+                        "",
                     style: AppTextStyles.allBody2Normal.copyWith(
                       color: BaseFunctions.isDarkMode(context)
                           ? AppColors.grayDark600

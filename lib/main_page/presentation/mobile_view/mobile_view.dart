@@ -267,11 +267,17 @@ class MobileView extends StatelessWidget {
           slivers: [
             SliverToBoxAdapter(
               key: mobileGeneralSectionKey,
-              child: const GeneralSection(),
+              child: GeneralSection(
+                generalInfo: state.generalInfoContent,
+                mainPhoto: state.mainPhoto,
+              ),
             ),
             SliverToBoxAdapter(
               key: mobileAboutMeSectionKey,
-              child: AboutMeSection(aboutMe: state.overviewAboutMe),
+              child: AboutMeSection(
+                aboutMe: state.overviewAboutMe,
+                secondaryPhoto: state.secondaryPhoto,
+              ),
             ),
             const SliverToBoxAdapter(child: SkillsSection()),
             SliverToBoxAdapter(

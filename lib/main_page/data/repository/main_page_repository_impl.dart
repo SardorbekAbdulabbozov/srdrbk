@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/foundation.dart';
 import 'package:srdrbk/components/extension/app_extensions.dart';
 import 'package:srdrbk/core/api_client/api_client.dart';
@@ -78,10 +76,12 @@ class MainPageRepostioryImpl extends MainPageRepostiory {
           .get();
       List<String> images = [];
       if (response.docs.isNotEmpty) {
-        for (var image
-            in response.docs.firstIfNotEmpty?.data()["photos"] ?? []) {
-          images.add(image);
-        }
+        final mainPhoto =
+            response.docs.firstIfNotEmpty?.data()["mainPhoto"] ?? "";
+        final secondaryPhoto =
+            response.docs.firstIfNotEmpty?.data()["secondaryPhoto"] ?? "";
+        images.add(mainPhoto);
+        images.add(secondaryPhoto);
         return Right(images);
       } else {
         return const Left(ServerFailure(message: "No data found"));
@@ -108,5 +108,22 @@ class MainPageRepostioryImpl extends MainPageRepostiory {
         .collection(Constants.experienceCollection)
         .add(experience.toJson());
     debugPrint(response.id);
+  }
+
+  @override
+  Future<Either<Failure, String>> getGeneralSectionInfo() async {
+    try {
+      final response = await _apiClient.firestore
+          .collection(Constants.generalCollection)
+          .get();
+      String generalInfo = "";
+      for (var element in response.docs) {
+        generalInfo = element.data()['info'] ?? '';
+      }
+      return Right(generalInfo);
+    } catch (e) {
+      debugPrint(e.toString());
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 }

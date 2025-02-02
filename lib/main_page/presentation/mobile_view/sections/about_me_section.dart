@@ -6,9 +6,10 @@ import 'package:srdrbk/core/theme/colors/app_colors.dart';
 import 'package:srdrbk/core/theme/text_styles/app_text_styles.dart';
 
 class AboutMeSection extends StatelessWidget {
-  const AboutMeSection({super.key, this.aboutMe});
+  const AboutMeSection({super.key, this.aboutMe, this.secondaryPhoto});
 
   final String? aboutMe;
+  final String? secondaryPhoto;
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +79,7 @@ class AboutMeSection extends StatelessWidget {
                                 ? AppColors.grayDark200
                                 : AppColors.grayLight200,
                             child: Image.asset(
-                              'assets/images/photo2.jpeg',
+                              'assets/images/${secondaryPhoto ?? "photo2.jpg"}',
                               fit: BoxFit.cover,
                             ),
                           ),
