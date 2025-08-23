@@ -7,4 +7,4 @@
 - Developed by Sardorbek Abdulabbozov (https://www.linkedin.com/in/sardorbek-abdulabbozov/)
 
 - First deployed on www.abdulabbozov.dev (24 August 2024)
-- Latest deployed on www.abdulabbozov.dev (2 February 2025)
+- Latest deployed on www.abdulabbozov.dev (24 August 2025)

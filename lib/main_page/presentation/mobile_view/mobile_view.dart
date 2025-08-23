@@ -1,5 +1,4 @@
-import 'dart:html' as html;
-
+import 'package:web/web.dart' as html;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -197,12 +196,12 @@ class MobileView extends StatelessWidget {
                     );
                   },
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
+                    backgroundColor: WidgetStatePropertyAll(
                       BaseFunctions.isDarkMode(context)
                           ? AppColors.grayDark900
                           : AppColors.grayLight900,
                     ),
-                    overlayColor: MaterialStateProperty.all(
+                    overlayColor: WidgetStatePropertyAll(
                       BaseFunctions.isDarkMode(context)
                           ? AppColors.grayDark600
                           : AppColors.grayLight600,

@@ -9,8 +9,6 @@ class BaseFunctions {
         return ThemeMode.dark.index;
       case ThemeMode.system:
         return ThemeMode.system.index;
-      default:
-        return ThemeMode.dark.index;
     }
   }
 

@@ -6,20 +6,20 @@ ThemeData lightMode = ThemeData(
   primaryColor: AppColors.grayLightDefault,
   colorScheme: ColorScheme.light(
     primary: AppColors.grayLightDefault,
-    background: AppColors.grayLightDefault,
+    surface: AppColors.grayLightDefault,
     brightness: Brightness.light,
   ),
   iconTheme: IconThemeData(color: AppColors.grayLight600),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       visualDensity: VisualDensity.compact,
-      padding: MaterialStateProperty.all(
-        const EdgeInsets.symmetric(vertical: 6, horizontal: 16),
+      padding: const WidgetStatePropertyAll(
+        EdgeInsets.symmetric(vertical: 6, horizontal: 16),
       ),
-      elevation: MaterialStateProperty.all(0),
-      backgroundColor: MaterialStateProperty.all(AppColors.grayLightDefault),
-      overlayColor: MaterialStateProperty.all(AppColors.grayDark900),
-      shape: MaterialStateProperty.all(
+      elevation: const WidgetStatePropertyAll(0),
+      backgroundColor: WidgetStatePropertyAll(AppColors.grayLightDefault),
+      overlayColor: WidgetStatePropertyAll(AppColors.grayDark900),
+      shape: WidgetStatePropertyAll(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
@@ -28,9 +28,9 @@ ThemeData lightMode = ThemeData(
   ),
   iconButtonTheme: IconButtonThemeData(
     style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.all(AppColors.grayLightDefault),
-      padding: MaterialStateProperty.all(const EdgeInsets.all(6)),
-      shape: MaterialStateProperty.all(
+      backgroundColor: WidgetStatePropertyAll(AppColors.grayLightDefault),
+      padding: const WidgetStatePropertyAll(EdgeInsets.all(6)),
+      shape: WidgetStatePropertyAll(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
@@ -61,19 +61,19 @@ ThemeData darkMode = ThemeData(
   primaryColor: AppColors.grayDarkDefault,
   colorScheme: ColorScheme.dark(
     primary: AppColors.grayDarkDefault,
-    background: AppColors.grayDarkDefault,
+    surface: AppColors.grayDarkDefault,
     brightness: Brightness.dark,
   ),
   iconTheme: IconThemeData(color: AppColors.grayDark600),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       visualDensity: VisualDensity.compact,
-      padding: MaterialStateProperty.all(
-        const EdgeInsets.symmetric(vertical: 6, horizontal: 16),
+      padding: const WidgetStatePropertyAll(
+        EdgeInsets.symmetric(vertical: 6, horizontal: 16),
       ),
-      backgroundColor: MaterialStateProperty.all(AppColors.grayDarkDefault),
-      overlayColor: MaterialStateProperty.all(AppColors.grayLight700),
-      shape: MaterialStateProperty.all(
+      backgroundColor: WidgetStatePropertyAll(AppColors.grayDarkDefault),
+      overlayColor: WidgetStatePropertyAll(AppColors.grayLight700),
+      shape: WidgetStatePropertyAll(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
@@ -82,9 +82,9 @@ ThemeData darkMode = ThemeData(
   ),
   iconButtonTheme: IconButtonThemeData(
     style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.all(AppColors.grayDarkDefault),
-      padding: MaterialStateProperty.all(const EdgeInsets.all(6)),
-      shape: MaterialStateProperty.all(
+      backgroundColor: WidgetStatePropertyAll(AppColors.grayDarkDefault),
+      padding: const WidgetStatePropertyAll(EdgeInsets.all(6)),
+      shape: WidgetStatePropertyAll(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),

@@ -33,19 +33,19 @@ class ActionButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
-          elevation: MaterialStateProperty.all(0),
+          elevation: const WidgetStatePropertyAll(0),
           overlayColor: overlayColor != null
-              ? MaterialStateProperty.all(overlayColor)
+              ? WidgetStatePropertyAll(overlayColor)
               : style?.overlayColor,
           backgroundColor: color != null
-              ? MaterialStateProperty.all(color)
+              ? WidgetStatePropertyAll(color)
               : style?.backgroundColor,
-          shape: MaterialStateProperty.all(
+          shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
               borderRadius: borderRadius ?? BorderRadius.circular(8),
             ),
           ),
-          padding: MaterialStateProperty.all(
+          padding: WidgetStatePropertyAll(
             EdgeInsets.symmetric(
               vertical: 6,
               horizontal: isMobileView ? 8 : 16,

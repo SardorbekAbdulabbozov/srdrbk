@@ -1,5 +1,4 @@
-import 'dart:html' as html;
-
+import 'package:web/web.dart' as html;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -84,28 +83,32 @@ class GetInTouchSection extends StatelessWidget {
                             text: "abdulabbozov.dev@gmail.com",
                           ),
                         ).then(
-                          (value) => ScaffoldMessenger.of(
-                            scaffoldKeyDesktop.currentContext!,
-                          ).showSnackBar(
-                            SnackBar(
-                              backgroundColor: BaseFunctions.isDarkMode(context)
-                                  ? AppColors.grayLightDefault
-                                  : AppColors.grayDarkDefault,
-                              duration: const Duration(seconds: 2),
-                              content: Text(
-                                'Copied to clipboard',
-                                style: AppTextStyles.allBody2Normal.copyWith(
-                                  color: BaseFunctions.isDarkMode(context)
-                                      ? AppColors.grayDarkDefault
-                                      : AppColors.grayLightDefault,
+                          (value) {
+                            if (!context.mounted) return;
+                            ScaffoldMessenger.of(
+                              scaffoldKeyDesktop.currentContext!,
+                            ).showSnackBar(
+                              SnackBar(
+                                backgroundColor:
+                                    BaseFunctions.isDarkMode(context)
+                                        ? AppColors.grayLightDefault
+                                        : AppColors.grayDarkDefault,
+                                duration: const Duration(seconds: 2),
+                                content: Text(
+                                  'Copied to clipboard',
+                                  style: AppTextStyles.allBody2Normal.copyWith(
+                                    color: BaseFunctions.isDarkMode(context)
+                                        ? AppColors.grayDarkDefault
+                                        : AppColors.grayLightDefault,
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
+                            );
+                          },
                         );
                       },
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
+                        backgroundColor: WidgetStatePropertyAll(
                           BaseFunctions.isDarkMode(context)
                               ? AppColors.grayDark50
                               : AppColors.grayLight50,
@@ -159,28 +162,32 @@ class GetInTouchSection extends StatelessWidget {
                         await Clipboard.setData(
                           const ClipboardData(text: "+998909121550"),
                         ).then(
-                          (value) => ScaffoldMessenger.of(
-                            scaffoldKeyDesktop.currentContext!,
-                          ).showSnackBar(
-                            SnackBar(
-                              backgroundColor: BaseFunctions.isDarkMode(context)
-                                  ? AppColors.grayLightDefault
-                                  : AppColors.grayDarkDefault,
-                              duration: const Duration(seconds: 2),
-                              content: Text(
-                                'Copied to clipboard',
-                                style: AppTextStyles.allBody2Normal.copyWith(
-                                  color: BaseFunctions.isDarkMode(context)
-                                      ? AppColors.grayDarkDefault
-                                      : AppColors.grayLightDefault,
+                          (value) {
+                            if (!context.mounted) return;
+                            ScaffoldMessenger.of(
+                              scaffoldKeyDesktop.currentContext!,
+                            ).showSnackBar(
+                              SnackBar(
+                                backgroundColor:
+                                    BaseFunctions.isDarkMode(context)
+                                        ? AppColors.grayLightDefault
+                                        : AppColors.grayDarkDefault,
+                                duration: const Duration(seconds: 2),
+                                content: Text(
+                                  'Copied to clipboard',
+                                  style: AppTextStyles.allBody2Normal.copyWith(
+                                    color: BaseFunctions.isDarkMode(context)
+                                        ? AppColors.grayDarkDefault
+                                        : AppColors.grayLightDefault,
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
+                            );
+                          },
                         );
                       },
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
+                        backgroundColor: WidgetStatePropertyAll(
                           BaseFunctions.isDarkMode(context)
                               ? AppColors.grayDark50
                               : AppColors.grayLight50,
@@ -219,7 +226,7 @@ class GetInTouchSection extends StatelessWidget {
             children: [
               IconButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
+                  backgroundColor: WidgetStatePropertyAll(
                     BaseFunctions.isDarkMode(context)
                         ? AppColors.grayDark50
                         : AppColors.grayLight50,
@@ -246,7 +253,7 @@ class GetInTouchSection extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 4),
                 child: IconButton(
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
+                    backgroundColor: WidgetStatePropertyAll(
                       BaseFunctions.isDarkMode(context)
                           ? AppColors.grayDark50
                           : AppColors.grayLight50,
@@ -272,7 +279,7 @@ class GetInTouchSection extends StatelessWidget {
               ),
               IconButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
+                  backgroundColor: WidgetStatePropertyAll(
                     BaseFunctions.isDarkMode(context)
                         ? AppColors.grayDark50
                         : AppColors.grayLight50,
