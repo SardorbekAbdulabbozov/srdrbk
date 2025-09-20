@@ -4,6 +4,11 @@ import 'package:srdrbk/core/theme/colors/app_colors.dart';
 ThemeData lightMode = ThemeData(
   brightness: Brightness.light,
   primaryColor: AppColors.grayLightDefault,
+  textSelectionTheme: TextSelectionThemeData(
+    cursorColor: AppColors.grayLight600,
+    selectionColor: AppColors.grayLight300,
+    selectionHandleColor: AppColors.grayLight600,
+  ),
   colorScheme: ColorScheme.light(
     primary: AppColors.grayLightDefault,
     surface: AppColors.grayLightDefault,
@@ -59,6 +64,11 @@ ThemeData lightMode = ThemeData(
 ThemeData darkMode = ThemeData(
   brightness: Brightness.dark,
   primaryColor: AppColors.grayDarkDefault,
+  textSelectionTheme: TextSelectionThemeData(
+    cursorColor: AppColors.grayDark600,
+    selectionColor: AppColors.grayDark300,
+    selectionHandleColor: AppColors.grayDark600,
+  ),
   colorScheme: ColorScheme.dark(
     primary: AppColors.grayDarkDefault,
     surface: AppColors.grayDarkDefault,

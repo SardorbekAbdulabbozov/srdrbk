@@ -11,7 +11,6 @@ class LoadingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
     return Container(
       color: BaseFunctions.isDarkMode(context)
           ? AppColors.grayDarkDefault

@@ -1,4 +1,5 @@
 import 'package:web/web.dart' as html;
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:srdrbk/core/base_functions/base_functions.dart';
@@ -226,8 +227,9 @@ class GeneralSection extends StatelessWidget {
                         color: BaseFunctions.isDarkMode(context)
                             ? AppColors.grayDark200
                             : AppColors.grayLight200,
-                        child: Image.asset(
-                          'assets/images/${mainPhoto ?? "photo1.jpg"}',
+                        child: CachedNetworkImage(
+                          imageUrl:
+                              "https://raw.githubusercontent.com/SardorbekAbdulabbozov/srdrbk/refs/heads/main/assets/images/photo1.jpg",
                           fit: BoxFit.cover,
                         ),
                       ),
