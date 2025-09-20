@@ -1,5 +1,6 @@
 class Experience {
   Experience({
+    this.id,
     this.position,
     this.employmentType,
     this.duration,
@@ -10,6 +11,7 @@ class Experience {
   });
 
   Experience.fromJson(dynamic json) {
+    id = json['id'];
     position = json['position'];
     employmentType = json['employmentType'];
     duration = json['duration'];
@@ -19,16 +21,18 @@ class Experience {
     order = json['order'];
   }
 
+  num? id;
   String? position;
   String? employmentType;
   String? duration;
   String? companyLogo;
   String? responsibilities;
   bool? isCareerBreak;
-  int? order;
+  num? order;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
+    map['id'] = id;
     map['position'] = position;
     map['employmentType'] = employmentType;
     map['duration'] = duration;

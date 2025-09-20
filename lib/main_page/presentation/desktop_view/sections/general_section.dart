@@ -1,3 +1,5 @@
+import 'package:srdrbk/components/widgets/signature_widget.dart';
+import 'package:srdrbk/main_page/data/model/info.dart';
 import 'package:web/web.dart' as html;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -7,14 +9,9 @@ import 'package:srdrbk/core/theme/colors/app_colors.dart';
 import 'package:srdrbk/core/theme/text_styles/app_text_styles.dart';
 
 class GeneralSection extends StatelessWidget {
-  const GeneralSection({
-    super.key,
-    required this.generalInfo,
-    required this.mainPhoto,
-  });
+  const GeneralSection({super.key, this.info});
 
-  final String? generalInfo;
-  final String? mainPhoto;
+  final Info? info;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +54,7 @@ class GeneralSection extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 8.0, right: 132),
                     child: Text(
-                      generalInfo?.replaceAll("***",
+                      info?.about?.replaceAll("***",
                               "${BaseFunctions.calculateExperienceInYears()}") ??
                           "",
                       style: AppTextStyles.allBody2Normal.copyWith(
@@ -86,7 +83,7 @@ class GeneralSection extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'Tashkent, Uzbekistan',
+                          info?.location ?? "",
                           style: AppTextStyles.allBody2Normal.copyWith(
                             color: BaseFunctions.isDarkMode(context)
                                 ? AppColors.grayDark600
@@ -97,41 +94,43 @@ class GeneralSection extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 48),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: SizedBox(
-                            width: 24,
-                            height: 24,
-                            child: Center(
-                              child: CircleAvatar(
-                                radius: 4,
-                                backgroundColor: AppColors.emerald,
+                    padding: EdgeInsets.only(
+                      bottom: (info?.isOpenToWork ?? false) ? 48 : 40,
+                    ),
+                    child: Visibility(
+                      visible: info?.isOpenToWork ?? false,
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: SizedBox(
+                              width: 24,
+                              height: 24,
+                              child: Center(
+                                child: CircleAvatar(
+                                  radius: 4,
+                                  backgroundColor: AppColors.emerald,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        Text(
-                          'Available for new career opportunities',
-                          style: AppTextStyles.allBody2Normal.copyWith(
-                            color: BaseFunctions.isDarkMode(context)
-                                ? AppColors.grayDark600
-                                : AppColors.grayLight600,
+                          Text(
+                            'Available for new career opportunities',
+                            style: AppTextStyles.allBody2Normal.copyWith(
+                              color: BaseFunctions.isDarkMode(context)
+                                  ? AppColors.grayDark600
+                                  : AppColors.grayLight600,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   Row(
                     children: [
                       IconButton(
                         onPressed: () {
-                          html.window.open(
-                            'https://github.com/SardorbekAbdulabbozov',
-                            "_blank",
-                          );
+                          html.window.open(info?.githubUrl ?? '', "_blank");
                         },
                         icon: Center(
                           child: Image.asset(
@@ -148,16 +147,13 @@ class GeneralSection extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 4),
                         child: IconButton(
                           onPressed: () {
-                            html.window.open(
-                              'https://www.linkedin.com/in/sardorbek-abdulabbozov/',
-                              "_blank",
-                            );
+                            html.window.open(info?.linkedinUrl ?? '', "_blank");
                           },
                           icon: Center(
                             child: Image.asset(
                               'assets/images/linkedin.png',
-                              width: 24,
-                              height: 24,
+                              width: 26,
+                              height: 26,
                               color: BaseFunctions.isDarkMode(context)
                                   ? AppColors.grayDark600
                                   : AppColors.grayLight600,
@@ -167,8 +163,7 @@ class GeneralSection extends StatelessWidget {
                       ),
                       IconButton(
                         onPressed: () {
-                          html.window
-                              .open('https://t.me/abdulabbozov_s', "_blank");
+                          html.window.open(info?.telegramUrl ?? "", "_blank");
                         },
                         icon: Center(
                           child: Image.asset(
@@ -178,6 +173,24 @@ class GeneralSection extends StatelessWidget {
                             color: BaseFunctions.isDarkMode(context)
                                 ? AppColors.grayDark600
                                 : AppColors.grayLight600,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4),
+                        child: IconButton(
+                          onPressed: () {
+                            html.window.open(info?.xUrl ?? "", "_blank");
+                          },
+                          icon: Center(
+                            child: Image.asset(
+                              'assets/images/x.png',
+                              width: 22,
+                              height: 22,
+                              color: BaseFunctions.isDarkMode(context)
+                                  ? AppColors.grayDark600
+                                  : AppColors.grayLight600,
+                            ),
                           ),
                         ),
                       ),
@@ -228,9 +241,10 @@ class GeneralSection extends StatelessWidget {
                             ? AppColors.grayDark200
                             : AppColors.grayLight200,
                         child: CachedNetworkImage(
-                          imageUrl:
-                              "https://raw.githubusercontent.com/SardorbekAbdulabbozov/srdrbk/refs/heads/main/assets/images/photo1.jpg",
+                          imageUrl: info?.mainPhoto ?? "",
                           fit: BoxFit.cover,
+                          errorWidget: (_, __, ___) => const SignatureWidget(),
+                          placeholder: (_, __) => const SignatureWidget(),
                         ),
                       ),
                     ),

@@ -190,10 +190,7 @@ class MobileView extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: ElevatedButton(
                   onPressed: () {
-                    html.window.open(
-                      'https://docs.google.com/document/d/1iDB74YH9u4ThiivFpklfGk73JDnMZuPcC9gIlotBEHo/edit?usp=sharing',
-                      "_blank",
-                    );
+                    html.window.open(state.info?.cvUrl ?? "", "_blank");
                   },
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(
@@ -266,16 +263,13 @@ class MobileView extends StatelessWidget {
           slivers: [
             SliverToBoxAdapter(
               key: mobileGeneralSectionKey,
-              child: GeneralSection(
-                generalInfo: state.generalInfoContent,
-                mainPhoto: state.mainPhoto,
-              ),
+              child: GeneralSection(info: state.info),
             ),
             SliverToBoxAdapter(
               key: mobileAboutMeSectionKey,
               child: AboutMeSection(
-                aboutMe: state.overviewAboutMe,
-                secondaryPhoto: state.secondaryPhoto,
+                aboutMe: state.info?.overview,
+                secondaryPhoto: state.info?.secondaryPhoto,
               ),
             ),
             const SliverToBoxAdapter(child: SkillsSection()),
@@ -288,9 +282,11 @@ class MobileView extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               key: mobileGetInTouchSectionKey,
-              child: const GetInTouchSection(),
+              child: GetInTouchSection(info: state.info),
             ),
-            const SliverToBoxAdapter(child: FooterSection()),
+            SliverToBoxAdapter(
+              child: FooterSection(linkedinUrl: state.info?.linkedinUrl ?? ""),
+            ),
           ],
         ),
       ),

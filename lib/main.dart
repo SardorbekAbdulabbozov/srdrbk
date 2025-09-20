@@ -5,13 +5,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:srdrbk/bloc/app_control_bloc.dart';
 import 'package:srdrbk/components/global_variables.dart';
 import 'package:srdrbk/core/config/router/router.dart';
+import 'package:srdrbk/core/constants/constants.dart';
 import 'package:srdrbk/core/dependency/dependency_injection.dart';
 import 'package:srdrbk/core/theme/theme.dart';
 import 'package:srdrbk/firebase_options.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  const supabaseKey = String.fromEnvironment('SUPABASE_KEY');
+  await Supabase.initialize(url: Constants.supabaseUrl, anonKey: supabaseKey);
   await EasyLocalization.ensureInitialized();
   await setUpDependencies();
   await storageService.setTheme(ThemeMode.system);

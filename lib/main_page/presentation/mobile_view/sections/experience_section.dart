@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:srdrbk/core/base_functions/base_functions.dart';
@@ -5,6 +6,7 @@ import 'package:srdrbk/core/config/localization/locale_keys.g.dart';
 import 'package:srdrbk/core/theme/colors/app_colors.dart';
 import 'package:srdrbk/core/theme/text_styles/app_text_styles.dart';
 import 'package:srdrbk/main_page/data/model/experience.dart';
+import 'package:srdrbk/components/widgets/signature_widget.dart';
 
 class ExperienceSection extends StatelessWidget {
   const ExperienceSection({super.key, required this.list});
@@ -69,12 +71,21 @@ class ExperienceSection extends StatelessWidget {
                     if (list[i].companyLogo != null)
                       Padding(
                         padding: const EdgeInsets.only(bottom: 16),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Image.asset(
-                            'assets/images/${list[i].companyLogo}',
+                        child: Container(
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            color: BaseFunctions.isDarkMode(context)
+                                ? AppColors.grayDark50
+                                : AppColors.grayLight50,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: CachedNetworkImage(
+                            imageUrl: list[i].companyLogo ?? "",
                             width: 64,
                             height: 64,
+                            errorWidget: (_, __, ___) =>
+                                const SignatureWidget(),
+                            placeholder: (_, __) => const SignatureWidget(),
                           ),
                         ),
                       ),

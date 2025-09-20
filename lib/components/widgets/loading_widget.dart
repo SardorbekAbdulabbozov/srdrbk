@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:srdrbk/core/base_functions/base_functions.dart';
 import 'package:srdrbk/core/theme/colors/app_colors.dart';
+import 'package:srdrbk/components/widgets/signature_widget.dart';
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({
@@ -24,11 +25,7 @@ class LoadingWidget extends StatelessWidget {
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              Image.asset(
-                BaseFunctions.isDarkMode(context)
-                    ? "assets/images/signature_white.png"
-                    : "assets/images/signature_black.png",
-              ),
+              const SignatureWidget(),
               SizedBox(
                 width: 36,
                 height: 36,

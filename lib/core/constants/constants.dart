@@ -1,7 +1,6 @@
 class Constants {
-  static const String experienceCollection = "experience_collection";
-  static const String projectCollection = "project_collection";
-  static const String aboutMeCollection = "about_me_collection";
-  static const String photoCollection = "photo_collection";
-  static const String generalCollection = "general_collection";
+  static const String supabaseUrl = "https://oxrbsxyghpmetptogbiu.supabase.co";
+  static const String info = "info";
+  static const String experience = "experience";
+  static const String project = "project";
 }

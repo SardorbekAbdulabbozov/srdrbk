@@ -7,7 +7,9 @@ import 'package:srdrbk/core/theme/colors/app_colors.dart';
 import 'package:srdrbk/core/theme/text_styles/app_text_styles.dart';
 
 class FooterSection extends StatelessWidget {
-  const FooterSection({super.key});
+  const FooterSection({super.key, required this.linkedinUrl});
+
+  final String linkedinUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -46,12 +48,13 @@ class FooterSection extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'Sagar Shah',
-                  recognizer: TapGestureRecognizer()..onTap = () {
-                    html.window.open(
-                      'https://www.figma.com/@shahsagarm',
-                      "_blank",
-                    );
-                  },
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      html.window.open(
+                        'https://www.figma.com/@shahsagarm',
+                        "_blank",
+                      );
+                    },
                   style: AppTextStyles.allBody3Normal.copyWith(
                     color: BaseFunctions.isDarkMode(context)
                         ? AppColors.grayDark600
@@ -69,12 +72,8 @@ class FooterSection extends StatelessWidget {
                 ),
                 TextSpan(
                   text: 'Sardorbek Abdulabbozov',
-                  recognizer: TapGestureRecognizer()..onTap = () {
-                    html.window.open(
-                      'https://www.linkedin.com/in/sardorbek-abdulabbozov/',
-                      "_blank",
-                    );
-                  },
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () => html.window.open(linkedinUrl, "_blank"),
                   style: AppTextStyles.allBody3Normal.copyWith(
                     color: BaseFunctions.isDarkMode(context)
                         ? AppColors.grayDark600

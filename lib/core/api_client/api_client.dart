@@ -1,7 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class ApiClient {
-  final FirebaseFirestore firestore;
+  final SupabaseClient supabaseClient;
 
-  ApiClient(this.firestore);
+  ApiClient(this.supabaseClient);
 }

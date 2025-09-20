@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:web/web.dart' as html;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:srdrbk/core/config/localization/locale_keys.g.dart';
 import 'package:srdrbk/core/theme/colors/app_colors.dart';
 import 'package:srdrbk/core/theme/text_styles/app_text_styles.dart';
 import 'package:srdrbk/main_page/data/model/project.dart';
+import 'package:srdrbk/components/widgets/signature_widget.dart';
 
 class ProjectsSection extends StatelessWidget {
   const ProjectsSection({super.key, required this.list});
@@ -96,10 +98,12 @@ class ProjectsSection extends StatelessWidget {
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
-      child: Image.asset(
-        'assets/images/${list[i].image}',
+      child: CachedNetworkImage(
+        imageUrl: list[i].image ?? "",
         width: (size.width - 16 * 2) / 2,
         height: 4 * ((size.width - 16 * 2) / 2) / 3,
+        errorWidget: (_, __, ___) => const SignatureWidget(),
+        placeholder: (_, __) => const SignatureWidget(),
         fit: BoxFit.cover,
       ),
     );

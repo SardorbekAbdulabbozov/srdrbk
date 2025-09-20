@@ -133,10 +133,7 @@ class DesktopView extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 16),
                 child: ElevatedButton(
                   onPressed: () {
-                    html.window.open(
-                      'https://docs.google.com/document/d/1iDB74YH9u4ThiivFpklfGk73JDnMZuPcC9gIlotBEHo/edit?usp=sharing',
-                      "_blank",
-                    );
+                    html.window.open(state.info?.cvUrl ?? "", "_blank");
                   },
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(
@@ -171,16 +168,13 @@ class DesktopView extends StatelessWidget {
           slivers: [
             SliverToBoxAdapter(
               key: desktopGeneralSectionKey,
-              child: GeneralSection(
-                generalInfo: state.generalInfoContent,
-                mainPhoto: state.mainPhoto,
-              ),
+              child: GeneralSection(info: state.info),
             ),
             SliverToBoxAdapter(
               key: desktopAboutMeSectionKey,
               child: AboutMeSection(
-                aboutMe: state.overviewAboutMe,
-                secondaryPhoto: state.secondaryPhoto,
+                aboutMe: state.info?.overview,
+                secondaryPhoto: state.info?.secondaryPhoto,
               ),
             ),
             const SliverToBoxAdapter(child: SkillsSection()),
@@ -193,9 +187,13 @@ class DesktopView extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               key: desktopGetInTouchSectionKey,
-              child: const GetInTouchSection(),
+              child: GetInTouchSection(info: state.info),
             ),
-            const SliverToBoxAdapter(child: FooterSection()),
+            SliverToBoxAdapter(
+              child: FooterSection(
+                linkedinUrl: state.info?.linkedinUrl ?? '',
+              ),
+            ),
           ],
         ),
       ),

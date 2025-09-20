@@ -1,3 +1,4 @@
+import 'package:srdrbk/main_page/data/model/info.dart';
 import 'package:web/web.dart' as html;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,9 @@ import 'package:srdrbk/core/theme/colors/app_colors.dart';
 import 'package:srdrbk/core/theme/text_styles/app_text_styles.dart';
 
 class GetInTouchSection extends StatelessWidget {
-  const GetInTouchSection({super.key});
+  const GetInTouchSection({super.key, this.info});
+
+  final Info? info;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +71,7 @@ class GetInTouchSection extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
-                        "abdulabbozov.dev@gmail.com",
+                        info?.email ?? "",
                         style: AppTextStyles.desktopHeading2SemiBold.copyWith(
                           color: BaseFunctions.isDarkMode(context)
                               ? AppColors.grayDark900
@@ -79,9 +82,7 @@ class GetInTouchSection extends StatelessWidget {
                     IconButton(
                       onPressed: () async {
                         await Clipboard.setData(
-                          const ClipboardData(
-                            text: "abdulabbozov.dev@gmail.com",
-                          ),
+                          ClipboardData(text: info?.email ?? ""),
                         ).then(
                           (value) {
                             if (!context.mounted) return;
@@ -149,7 +150,7 @@ class GetInTouchSection extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
-                        "+998 90-912-15-50",
+                        info?.phoneNumber ?? "",
                         style: AppTextStyles.desktopHeading2SemiBold.copyWith(
                           color: BaseFunctions.isDarkMode(context)
                               ? AppColors.grayDark900
@@ -160,7 +161,7 @@ class GetInTouchSection extends StatelessWidget {
                     IconButton(
                       onPressed: () async {
                         await Clipboard.setData(
-                          const ClipboardData(text: "+998909121550"),
+                          ClipboardData(text: info?.phoneNumber ?? ""),
                         ).then(
                           (value) {
                             if (!context.mounted) return;
@@ -233,10 +234,7 @@ class GetInTouchSection extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  html.window.open(
-                    'https://github.com/SardorbekAbdulabbozov',
-                    "_blank",
-                  );
+                  html.window.open(info?.githubUrl ?? '', "_blank");
                 },
                 icon: Center(
                   child: Image.asset(
@@ -260,16 +258,13 @@ class GetInTouchSection extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    html.window.open(
-                      'https://www.linkedin.com/in/sardorbek-abdulabbozov/',
-                      "_blank",
-                    );
+                    html.window.open(info?.linkedinUrl ?? "", "_blank");
                   },
                   icon: Center(
                     child: Image.asset(
                       'assets/images/linkedin.png',
-                      width: 24,
-                      height: 24,
+                      width: 26,
+                      height: 26,
                       color: BaseFunctions.isDarkMode(context)
                           ? AppColors.grayDark600
                           : AppColors.grayLight600,
@@ -286,7 +281,7 @@ class GetInTouchSection extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  html.window.open('https://t.me/abdulabbozov_s', "_blank");
+                  html.window.open(info?.telegramUrl ?? "", "_blank");
                 },
                 icon: Center(
                   child: Image.asset(
@@ -296,6 +291,31 @@ class GetInTouchSection extends StatelessWidget {
                     color: BaseFunctions.isDarkMode(context)
                         ? AppColors.grayDark600
                         : AppColors.grayLight600,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 4),
+                child: IconButton(
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(
+                      BaseFunctions.isDarkMode(context)
+                          ? AppColors.grayDark50
+                          : AppColors.grayLight50,
+                    ),
+                  ),
+                  onPressed: () {
+                    html.window.open(info?.xUrl ?? "", "_blank");
+                  },
+                  icon: Center(
+                    child: Image.asset(
+                      'assets/images/x.png',
+                      width: 22,
+                      height: 22,
+                      color: BaseFunctions.isDarkMode(context)
+                          ? AppColors.grayDark600
+                          : AppColors.grayLight600,
+                    ),
                   ),
                 ),
               ),
