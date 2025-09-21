@@ -1,3 +1,5 @@
+import 'package:srdrbk/core/analytics/analytics_service.dart';
+import 'package:srdrbk/core/constants/constants.dart';
 import 'package:srdrbk/main_page/data/model/info.dart';
 import 'package:web/web.dart' as html;
 import 'package:easy_localization/easy_localization.dart';
@@ -105,6 +107,10 @@ class GetInTouchSection extends StatelessWidget {
                                 ),
                               ),
                             );
+                            AnalyticsService.logEvent(
+                              Constants.emailCopied,
+                              {"view": Constants.desktopContact},
+                            );
                           },
                         );
                       },
@@ -184,6 +190,10 @@ class GetInTouchSection extends StatelessWidget {
                                 ),
                               ),
                             );
+                            AnalyticsService.logEvent(
+                              Constants.phoneNumberCopied,
+                              {"view": Constants.desktopContact},
+                            );
                           },
                         );
                       },
@@ -235,6 +245,10 @@ class GetInTouchSection extends StatelessWidget {
                 ),
                 onPressed: () {
                   html.window.open(info?.githubUrl ?? '', "_blank");
+                  AnalyticsService.logEvent(
+                    Constants.githubClicked,
+                    {"view": Constants.desktopContact},
+                  );
                 },
                 icon: Center(
                   child: Image.asset(
@@ -259,6 +273,10 @@ class GetInTouchSection extends StatelessWidget {
                   ),
                   onPressed: () {
                     html.window.open(info?.linkedinUrl ?? "", "_blank");
+                    AnalyticsService.logEvent(
+                      Constants.linkedinClicked,
+                      {"view": Constants.desktopContact},
+                    );
                   },
                   icon: Center(
                     child: Image.asset(
@@ -282,6 +300,10 @@ class GetInTouchSection extends StatelessWidget {
                 ),
                 onPressed: () {
                   html.window.open(info?.telegramUrl ?? "", "_blank");
+                  AnalyticsService.logEvent(
+                    Constants.telegramClicked,
+                    {"view": Constants.desktopContact},
+                  );
                 },
                 icon: Center(
                   child: Image.asset(
@@ -306,6 +328,10 @@ class GetInTouchSection extends StatelessWidget {
                   ),
                   onPressed: () {
                     html.window.open(info?.xUrl ?? "", "_blank");
+                    AnalyticsService.logEvent(
+                      Constants.xClicked,
+                      {"view": Constants.desktopContact},
+                    );
                   },
                   icon: Center(
                     child: Image.asset(

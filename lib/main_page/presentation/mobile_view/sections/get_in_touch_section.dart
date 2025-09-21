@@ -1,3 +1,5 @@
+import 'package:srdrbk/core/analytics/analytics_service.dart';
+import 'package:srdrbk/core/constants/constants.dart';
 import 'package:srdrbk/main_page/data/model/info.dart';
 import 'package:web/web.dart' as html;
 import 'package:easy_localization/easy_localization.dart';
@@ -87,28 +89,35 @@ class GetInTouchSection extends StatelessWidget {
                         onPressed: () async {
                           await Clipboard.setData(
                             ClipboardData(text: info?.email ?? ""),
-                          ).then((value) {
-                            if (!context.mounted) return;
-                            ScaffoldMessenger.of(
-                              scaffoldKeyMobile.currentContext!,
-                            ).showSnackBar(
-                              SnackBar(
-                                backgroundColor:
-                                    BaseFunctions.isDarkMode(context)
-                                        ? AppColors.grayLightDefault
-                                        : AppColors.grayDarkDefault,
-                                duration: const Duration(seconds: 2),
-                                content: Text(
-                                  'Copied to clipboard',
-                                  style: AppTextStyles.allBody2Normal.copyWith(
-                                    color: BaseFunctions.isDarkMode(context)
-                                        ? AppColors.grayDarkDefault
-                                        : AppColors.grayLightDefault,
+                          ).then(
+                            (value) {
+                              if (!context.mounted) return;
+                              ScaffoldMessenger.of(
+                                scaffoldKeyMobile.currentContext!,
+                              ).showSnackBar(
+                                SnackBar(
+                                  backgroundColor:
+                                      BaseFunctions.isDarkMode(context)
+                                          ? AppColors.grayLightDefault
+                                          : AppColors.grayDarkDefault,
+                                  duration: const Duration(seconds: 2),
+                                  content: Text(
+                                    'Copied to clipboard',
+                                    style:
+                                        AppTextStyles.allBody2Normal.copyWith(
+                                      color: BaseFunctions.isDarkMode(context)
+                                          ? AppColors.grayDarkDefault
+                                          : AppColors.grayLightDefault,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            );
-                          });
+                              );
+                              AnalyticsService.logEvent(
+                                Constants.emailCopied,
+                                {"view": Constants.mobileContact},
+                              );
+                            },
+                          );
                         },
                         style: ButtonStyle(
                           backgroundColor: WidgetStatePropertyAll(
@@ -169,28 +178,35 @@ class GetInTouchSection extends StatelessWidget {
                         onPressed: () async {
                           await Clipboard.setData(
                             ClipboardData(text: info?.phoneNumber ?? ""),
-                          ).then((value) {
-                            if (!context.mounted) return;
-                            ScaffoldMessenger.of(
-                              scaffoldKeyMobile.currentContext!,
-                            ).showSnackBar(
-                              SnackBar(
-                                backgroundColor:
-                                    BaseFunctions.isDarkMode(context)
-                                        ? AppColors.grayLightDefault
-                                        : AppColors.grayDarkDefault,
-                                duration: const Duration(seconds: 2),
-                                content: Text(
-                                  'Copied to clipboard',
-                                  style: AppTextStyles.allBody2Normal.copyWith(
-                                    color: BaseFunctions.isDarkMode(context)
-                                        ? AppColors.grayDarkDefault
-                                        : AppColors.grayLightDefault,
+                          ).then(
+                            (value) {
+                              if (!context.mounted) return;
+                              ScaffoldMessenger.of(
+                                scaffoldKeyMobile.currentContext!,
+                              ).showSnackBar(
+                                SnackBar(
+                                  backgroundColor:
+                                      BaseFunctions.isDarkMode(context)
+                                          ? AppColors.grayLightDefault
+                                          : AppColors.grayDarkDefault,
+                                  duration: const Duration(seconds: 2),
+                                  content: Text(
+                                    'Copied to clipboard',
+                                    style:
+                                        AppTextStyles.allBody2Normal.copyWith(
+                                      color: BaseFunctions.isDarkMode(context)
+                                          ? AppColors.grayDarkDefault
+                                          : AppColors.grayLightDefault,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            );
-                          });
+                              );
+                              AnalyticsService.logEvent(
+                                Constants.phoneNumberCopied,
+                                {"view": Constants.mobileContact},
+                              );
+                            },
+                          );
                         },
                         style: ButtonStyle(
                           backgroundColor: WidgetStatePropertyAll(
@@ -241,6 +257,10 @@ class GetInTouchSection extends StatelessWidget {
                 ),
                 onPressed: () {
                   html.window.open(info?.githubUrl ?? "", "_blank");
+                  AnalyticsService.logEvent(
+                    Constants.githubClicked,
+                    {"view": Constants.mobileContact},
+                  );
                 },
                 icon: Center(
                   child: Image.asset(
@@ -265,6 +285,10 @@ class GetInTouchSection extends StatelessWidget {
                   ),
                   onPressed: () {
                     html.window.open(info?.linkedinUrl ?? "", "_blank");
+                    AnalyticsService.logEvent(
+                      Constants.linkedinClicked,
+                      {"view": Constants.mobileContact},
+                    );
                   },
                   icon: Center(
                     child: Image.asset(
@@ -288,6 +312,10 @@ class GetInTouchSection extends StatelessWidget {
                 ),
                 onPressed: () {
                   html.window.open(info?.telegramUrl ?? "", "_blank");
+                  AnalyticsService.logEvent(
+                    Constants.telegramClicked,
+                    {"view": Constants.mobileContact},
+                  );
                 },
                 icon: Center(
                   child: Image.asset(
@@ -312,6 +340,10 @@ class GetInTouchSection extends StatelessWidget {
                   ),
                   onPressed: () {
                     html.window.open(info?.xUrl ?? "", "_blank");
+                    AnalyticsService.logEvent(
+                      Constants.xClicked,
+                      {"view": Constants.mobileContact},
+                    );
                   },
                   icon: Center(
                     child: Image.asset(

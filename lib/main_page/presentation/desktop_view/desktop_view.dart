@@ -1,3 +1,5 @@
+import 'package:srdrbk/core/analytics/analytics_service.dart';
+import 'package:srdrbk/core/constants/constants.dart';
 import 'package:web/web.dart' as html;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +41,10 @@ class DesktopView extends StatelessWidget {
                   BaseFunctions.scrollTo(
                     desktopGeneralSectionKey.currentContext!,
                   );
+                  AnalyticsService.logEvent(
+                    Constants.generalClicked,
+                    {"view": Constants.desktopAppBarView},
+                  );
                 },
                 child: Text(
                   '<SA/>',
@@ -55,6 +61,10 @@ class DesktopView extends StatelessWidget {
                   BaseFunctions.scrollTo(
                     desktopAboutMeSectionKey.currentContext!,
                   );
+                  AnalyticsService.logEvent(
+                    Constants.aboutClicked,
+                    {"view": Constants.desktopAppBarView},
+                  );
                 },
                 text: LocaleKeys.about.tr(),
               ),
@@ -65,6 +75,10 @@ class DesktopView extends StatelessWidget {
                     BaseFunctions.scrollTo(
                       desktopProjectsSectionKey.currentContext!,
                     );
+                    AnalyticsService.logEvent(
+                      Constants.projectsClicked,
+                      {"view": Constants.desktopAppBarView},
+                    );
                   },
                   text: LocaleKeys.projects.tr(),
                 ),
@@ -73,6 +87,10 @@ class DesktopView extends StatelessWidget {
                 onPressed: () {
                   BaseFunctions.scrollTo(
                     desktopGetInTouchSectionKey.currentContext!,
+                  );
+                  AnalyticsService.logEvent(
+                    Constants.contactClicked,
+                    {"view": Constants.desktopAppBarView},
                   );
                 },
                 text: LocaleKeys.contact.tr(),
@@ -134,6 +152,10 @@ class DesktopView extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     html.window.open(state.info?.cvUrl ?? "", "_blank");
+                    AnalyticsService.logEvent(
+                      Constants.cvClicked,
+                      {"view": Constants.desktopAppBarView},
+                    );
                   },
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(

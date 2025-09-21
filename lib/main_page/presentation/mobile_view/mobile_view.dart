@@ -1,3 +1,5 @@
+import 'package:srdrbk/core/analytics/analytics_service.dart';
+import 'package:srdrbk/core/constants/constants.dart';
 import 'package:web/web.dart' as html;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -49,6 +51,10 @@ class MobileView extends StatelessWidget {
                           mobileGeneralSectionKey.currentContext!,
                         );
                         scaffoldKeyMobile.currentState?.closeEndDrawer();
+                        AnalyticsService.logEvent(
+                          Constants.generalClicked,
+                          {"view": Constants.mobileDrawerView},
+                        );
                       },
                       child: Text(
                         '<SA/>',
@@ -93,6 +99,10 @@ class MobileView extends StatelessWidget {
                   BaseFunctions.scrollTo(
                     mobileAboutMeSectionKey.currentContext!,
                   );
+                  AnalyticsService.logEvent(
+                    Constants.aboutClicked,
+                    {"view": Constants.mobileDrawerView},
+                  );
                   scaffoldKeyMobile.currentState?.closeEndDrawer();
                 },
                 text: LocaleKeys.about.tr(),
@@ -106,6 +116,10 @@ class MobileView extends StatelessWidget {
                   BaseFunctions.scrollTo(
                     mobileProjectsSectionKey.currentContext!,
                   );
+                  AnalyticsService.logEvent(
+                    Constants.projectsClicked,
+                    {"view": Constants.mobileDrawerView},
+                  );
                   scaffoldKeyMobile.currentState?.closeEndDrawer();
                 },
                 text: LocaleKeys.projects.tr(),
@@ -118,6 +132,10 @@ class MobileView extends StatelessWidget {
                 onPressed: () {
                   BaseFunctions.scrollTo(
                     mobileGetInTouchSectionKey.currentContext!,
+                  );
+                  AnalyticsService.logEvent(
+                    Constants.contactClicked,
+                    {"view": Constants.mobileDrawerView},
                   );
                   scaffoldKeyMobile.currentState?.closeEndDrawer();
                 },
@@ -191,6 +209,10 @@ class MobileView extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     html.window.open(state.info?.cvUrl ?? "", "_blank");
+                    AnalyticsService.logEvent(
+                      Constants.cvClicked,
+                      {"view": Constants.mobileDrawerView},
+                    );
                   },
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(
@@ -225,6 +247,10 @@ class MobileView extends StatelessWidget {
           onTap: () {
             BaseFunctions.scrollTo(
               mobileGeneralSectionKey.currentContext!,
+            );
+            AnalyticsService.logEvent(
+              Constants.generalClicked,
+              {"view": Constants.mobileAppBarView},
             );
           },
           child: Text(

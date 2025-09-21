@@ -1,4 +1,6 @@
 import 'package:srdrbk/components/widgets/signature_widget.dart';
+import 'package:srdrbk/core/analytics/analytics_service.dart';
+import 'package:srdrbk/core/constants/constants.dart';
 import 'package:srdrbk/main_page/data/model/info.dart';
 import 'package:web/web.dart' as html;
 import 'package:cached_network_image/cached_network_image.dart';
@@ -131,6 +133,10 @@ class GeneralSection extends StatelessWidget {
                       IconButton(
                         onPressed: () {
                           html.window.open(info?.githubUrl ?? '', "_blank");
+                          AnalyticsService.logEvent(
+                            Constants.githubClicked,
+                            {"view": Constants.desktopGeneral},
+                          );
                         },
                         icon: Center(
                           child: Image.asset(
@@ -148,6 +154,10 @@ class GeneralSection extends StatelessWidget {
                         child: IconButton(
                           onPressed: () {
                             html.window.open(info?.linkedinUrl ?? '', "_blank");
+                            AnalyticsService.logEvent(
+                              Constants.linkedinClicked,
+                              {"view": Constants.desktopGeneral},
+                            );
                           },
                           icon: Center(
                             child: Image.asset(
@@ -164,6 +174,10 @@ class GeneralSection extends StatelessWidget {
                       IconButton(
                         onPressed: () {
                           html.window.open(info?.telegramUrl ?? "", "_blank");
+                          AnalyticsService.logEvent(
+                            Constants.telegramClicked,
+                            {"view": Constants.desktopGeneral},
+                          );
                         },
                         icon: Center(
                           child: Image.asset(
@@ -181,6 +195,10 @@ class GeneralSection extends StatelessWidget {
                         child: IconButton(
                           onPressed: () {
                             html.window.open(info?.xUrl ?? "", "_blank");
+                            AnalyticsService.logEvent(
+                              Constants.xClicked,
+                              {"view": Constants.desktopGeneral},
+                            );
                           },
                           icon: Center(
                             child: Image.asset(

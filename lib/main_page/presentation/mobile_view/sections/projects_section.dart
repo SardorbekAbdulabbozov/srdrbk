@@ -1,4 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:srdrbk/core/analytics/analytics_service.dart';
+import 'package:srdrbk/core/constants/constants.dart';
 import 'package:web/web.dart' as html;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -173,6 +175,10 @@ class ProjectsSection extends StatelessWidget {
                 html.window.open(
                   list[i].link ?? '',
                   "_blank",
+                );
+                AnalyticsService.logEvent(
+                  "${list[i].title}_Project_Clicked",
+                  {"view": Constants.mobileProjects},
                 );
               },
               visualDensity: VisualDensity.compact,

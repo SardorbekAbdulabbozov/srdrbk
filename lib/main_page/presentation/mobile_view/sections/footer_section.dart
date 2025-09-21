@@ -1,3 +1,5 @@
+import 'package:srdrbk/core/analytics/analytics_service.dart';
+import 'package:srdrbk/core/constants/constants.dart';
 import 'package:web/web.dart' as html;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -58,6 +60,10 @@ class FooterSection extends StatelessWidget {
                             'https://www.figma.com/@shahsagarm',
                             "_blank",
                           );
+                          AnalyticsService.logEvent(
+                            Constants.sagarShahClicked,
+                            {"view": Constants.mobileFooter},
+                          );
                         },
                       style: AppTextStyles.allBody3Normal.copyWith(
                         color: BaseFunctions.isDarkMode(context)
@@ -77,7 +83,13 @@ class FooterSection extends StatelessWidget {
                     TextSpan(
                       text: 'Sardorbek Abdulabbozov',
                       recognizer: TapGestureRecognizer()
-                        ..onTap = () => html.window.open(linkedinUrl, "_blank"),
+                        ..onTap = () {
+                          html.window.open(linkedinUrl, "_blank");
+                          AnalyticsService.logEvent(
+                            Constants.linkedinClicked,
+                            {"view": Constants.mobileFooter},
+                          );
+                        },
                       style: AppTextStyles.allBody3Normal.copyWith(
                         color: BaseFunctions.isDarkMode(context)
                             ? AppColors.grayDark600
