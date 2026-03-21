@@ -1,15 +1,19 @@
 {
   "about": "Men haqimda",
   "projects": "Loyihalarim",
+  "blogs": "Bloglarim",
   "contact": "Aloqa",
-  "downloadCV": "CV'ni yuklab olish",
+  "downloadCV": "CV’ni yuklab olish",
   "aboutMe": "Men haqimda",
-  "skills": "Ko‘nikmalar",
-  "skillsDescription": "Men juda yaxshi biladigan ko'nikmalar, asboblar va texnologiyalar:",
+  "skills": "Ko’nikmalar",
+  "skillsDescription": "Men juda yaxshi biladigan ko’nikmalar, asboblar va texnologiyalar:",
   "experience": "Tajriba",
-  "experienceDescription": "Bu yerda mening so'nggi tajribalarimning qisqa sharhi:",
+  "experienceDescription": "Bu yerda mening so’nggi tajribalarimning qisqa sharhi:",
   "projectsDescription": "Men yaratgan loyihalar:",
-  "getInTouch": "Bog'lanish",
-  "contactMethods": "Agar dasturchi izlayotgan bo'lsangiz, so'rovlaringiz bo'lsa yoki shunchaki aloqada bo'lishni istasangiz, menga murojaat qilishingiz mumkin.",
-  "profileOnPlatfroms": "Siz meni ushbu platformalardan ham topishingiz mumkin!"
+  "blogsDescription": "Mening so’nggi blog maqolalarim:",
+  "viewAll": "Barchasini ko’rish",
+  "getInTouch": "Bog’lanish",
+  "contactMethods": "Agar dasturchi izlayotgan bo’lsangiz, so’rovlaringiz bo’lsa yoki shunchaki aloqada bo’lishni istasangiz, menga murojaat qilishingiz mumkin.",
+  "profileOnPlatfroms": "Siz meni ushbu platformalardan ham topishingiz mumkin!",
+  "readMore": "Batafsil o'qish"
 }

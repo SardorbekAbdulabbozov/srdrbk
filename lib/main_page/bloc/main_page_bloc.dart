@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:srdrbk/components/global_variables.dart';
+import 'package:srdrbk/main_page/data/model/blog.dart';
 import 'package:srdrbk/main_page/data/model/experience.dart';
 import 'package:srdrbk/main_page/data/model/info.dart';
 import 'package:srdrbk/main_page/data/model/project.dart';
@@ -26,6 +27,7 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
     final locale = storageService.getLocale();
     List<Experience> experienceCollection = [];
     List<Project> projectCollection = [];
+    List<Blog> blogCollection = [];
     Info? info;
 
     final experiences = await _landingPageRepostiory.getExperienceCollection();
@@ -33,6 +35,9 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
 
     final project = await _landingPageRepostiory.getProjectCollection();
     project.fold((left) {}, (right) => projectCollection = right);
+
+    final blogs = await _landingPageRepostiory.getBlogCollection();
+    blogs.fold((left) {}, (right) => blogCollection = right);
 
     final aboutMe = await _landingPageRepostiory.getOverviewAboutMe();
     aboutMe.fold((left) {}, (right) => info = right);
@@ -43,6 +48,7 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
         isLoading: false,
         experienceCollection: experienceCollection,
         projectCollection: projectCollection,
+        blogCollection: blogCollection,
         info: info,
       ),
     );

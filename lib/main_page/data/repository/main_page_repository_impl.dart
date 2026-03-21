@@ -44,6 +44,24 @@ class MainPageRepostioryImpl extends MainPageRepostiory {
   }
 
   @override
+  Future<Either<Failure, List<Blog>>> getBlogCollection() async {
+    try {
+      final response = await _apiClient.supabaseClient
+          .from(Constants.blog)
+          .select()
+          .order("publishedAt", ascending: false);
+      List<Blog> blogCollection = [];
+      for (var element in response) {
+        blogCollection.add(Blog.fromJson(element));
+      }
+      return Right(blogCollection);
+    } catch (e) {
+      debugPrint(e.toString());
+      return Left(ServerFailure(message: e.toString()));
+    }
+  }
+
+  @override
   Future<Either<Failure, Info>> getOverviewAboutMe() async {
     try {
       final response =

@@ -14,6 +14,7 @@ import 'package:srdrbk/core/theme/colors/app_colors.dart';
 import 'package:srdrbk/core/theme/text_styles/app_text_styles.dart';
 import 'package:srdrbk/main_page/bloc/main_page_bloc.dart';
 import 'package:srdrbk/main_page/presentation/desktop_view/sections/about_me_section.dart';
+import 'package:srdrbk/main_page/presentation/desktop_view/sections/blogs_section.dart';
 import 'package:srdrbk/main_page/presentation/desktop_view/sections/experience_section.dart';
 import 'package:srdrbk/main_page/presentation/desktop_view/sections/footer_section.dart';
 import 'package:srdrbk/main_page/presentation/desktop_view/sections/general_section.dart';
@@ -81,6 +82,21 @@ class DesktopView extends StatelessWidget {
                     );
                   },
                   text: LocaleKeys.projects.tr(),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: ActionButton(
+                  onPressed: () {
+                    BaseFunctions.scrollTo(
+                      desktopBlogsSectionKey.currentContext!,
+                    );
+                    AnalyticsService.logEvent(
+                      Constants.blogsClicked,
+                      {"view": Constants.desktopAppBarView},
+                    );
+                  },
+                  text: LocaleKeys.blogs.tr(),
                 ),
               ),
               ActionButton(
@@ -206,6 +222,10 @@ class DesktopView extends StatelessWidget {
             SliverToBoxAdapter(
               key: desktopProjectsSectionKey,
               child: ProjectsSection(list: state.projectCollection),
+            ),
+            SliverToBoxAdapter(
+              key: desktopBlogsSectionKey,
+              child: BlogsSection(list: state.blogCollection),
             ),
             SliverToBoxAdapter(
               key: desktopGetInTouchSectionKey,

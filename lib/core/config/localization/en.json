@@ -1,6 +1,7 @@
 {
   "about": "About",
   "projects": "Projects",
+  "blogs": "Blogs",
   "contact": "Contact",
   "downloadCV": "Download CV",
   "aboutMe": "About me",
@@ -9,7 +10,10 @@
   "experience": "Experience",
   "experienceDescription": "Here is a quick summary of my most recent experiences:",
   "projectsDescription": "Some of the noteworthy projects I have built:",
+  "blogsDescription": "Some of my latest blog posts and articles:",
+  "viewAll": "View all",
   "getInTouch": "Get in touch",
-  "contactMethods": "What’s next? Feel free to reach out to me if you're looking for a developer, have a query, or simply want to connect.",
-  "profileOnPlatfroms": "You may also find me on these platforms!"
+  "contactMethods": "What’s next? Feel free to reach out to me if you’re looking for a developer, have a query, or simply want to connect.",
+  "profileOnPlatfroms": "You may also find me on these platforms!",
+  "readMore": "Read more"
 }

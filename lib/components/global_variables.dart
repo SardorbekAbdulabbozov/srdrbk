@@ -18,9 +18,11 @@ final scaffoldKeyMobile = GlobalKey<ScaffoldState>();
 final mobileGeneralSectionKey = GlobalKey();
 final mobileAboutMeSectionKey = GlobalKey();
 final mobileProjectsSectionKey = GlobalKey();
+final mobileBlogsSectionKey = GlobalKey();
 final mobileGetInTouchSectionKey = GlobalKey();
 
 final desktopGeneralSectionKey = GlobalKey();
 final desktopAboutMeSectionKey = GlobalKey();
 final desktopProjectsSectionKey = GlobalKey();
+final desktopBlogsSectionKey = GlobalKey();
 final desktopGetInTouchSectionKey = GlobalKey();

@@ -22,10 +22,10 @@ class GetInTouchSection extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Container(
       width: size.width,
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 64),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 96),
       color: BaseFunctions.isDarkMode(context)
-          ? AppColors.grayDark50
-          : AppColors.grayLight50,
+          ? AppColors.grayDarkDefault
+          : AppColors.grayLightDefault,
       child: Column(
         children: [
           Chip(
@@ -122,8 +122,8 @@ class GetInTouchSection extends StatelessWidget {
                         style: ButtonStyle(
                           backgroundColor: WidgetStatePropertyAll(
                             BaseFunctions.isDarkMode(context)
-                                ? AppColors.grayDark50
-                                : AppColors.grayLight50,
+                                ? AppColors.grayDarkDefault
+                                : AppColors.grayLightDefault,
                           ),
                         ),
                         icon: SvgPicture.asset(
@@ -211,8 +211,8 @@ class GetInTouchSection extends StatelessWidget {
                         style: ButtonStyle(
                           backgroundColor: WidgetStatePropertyAll(
                             BaseFunctions.isDarkMode(context)
-                                ? AppColors.grayDark50
-                                : AppColors.grayLight50,
+                                ? AppColors.grayDarkDefault
+                                : AppColors.grayLightDefault,
                           ),
                         ),
                         icon: SvgPicture.asset(
@@ -234,7 +234,7 @@ class GetInTouchSection extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 24, bottom: 8),
+            padding: const EdgeInsets.only(top: 48, bottom: 8),
             child: Text(
               LocaleKeys.profileOnPlatfroms.tr(),
               style: AppTextStyles.allBody2Normal.copyWith(
@@ -251,12 +251,12 @@ class GetInTouchSection extends StatelessWidget {
                 style: ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll(
                     BaseFunctions.isDarkMode(context)
-                        ? AppColors.grayDark50
-                        : AppColors.grayLight50,
+                        ? AppColors.grayDarkDefault
+                        : AppColors.grayLightDefault,
                   ),
                 ),
                 onPressed: () {
-                  html.window.open(info?.githubUrl ?? "", "_blank");
+                  html.window.open(info?.githubUrl ?? '', "_blank");
                   AnalyticsService.logEvent(
                     Constants.githubClicked,
                     {"view": Constants.mobileContact},
@@ -279,8 +279,8 @@ class GetInTouchSection extends StatelessWidget {
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(
                       BaseFunctions.isDarkMode(context)
-                          ? AppColors.grayDark50
-                          : AppColors.grayLight50,
+                          ? AppColors.grayDarkDefault
+                          : AppColors.grayLightDefault,
                     ),
                   ),
                   onPressed: () {
@@ -306,8 +306,8 @@ class GetInTouchSection extends StatelessWidget {
                 style: ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll(
                     BaseFunctions.isDarkMode(context)
-                        ? AppColors.grayDark50
-                        : AppColors.grayLight50,
+                        ? AppColors.grayDarkDefault
+                        : AppColors.grayLightDefault,
                   ),
                 ),
                 onPressed: () {
@@ -334,8 +334,8 @@ class GetInTouchSection extends StatelessWidget {
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(
                       BaseFunctions.isDarkMode(context)
-                          ? AppColors.grayDark50
-                          : AppColors.grayLight50,
+                          ? AppColors.grayDarkDefault
+                          : AppColors.grayLightDefault,
                     ),
                   ),
                   onPressed: () {

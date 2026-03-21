@@ -41,3 +41,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/CLAUDE.md
+
+# Claude Code local settings (contains secrets)
+.claude/settings.local.json

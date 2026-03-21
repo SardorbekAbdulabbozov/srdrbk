@@ -14,6 +14,7 @@ import 'package:srdrbk/core/theme/colors/app_colors.dart';
 import 'package:srdrbk/core/theme/text_styles/app_text_styles.dart';
 import 'package:srdrbk/main_page/bloc/main_page_bloc.dart';
 import 'package:srdrbk/main_page/presentation/mobile_view/sections/about_me_section.dart';
+import 'package:srdrbk/main_page/presentation/mobile_view/sections/blogs_section.dart';
 import 'package:srdrbk/main_page/presentation/mobile_view/sections/experience_section.dart';
 import 'package:srdrbk/main_page/presentation/mobile_view/sections/footer_section.dart';
 import 'package:srdrbk/main_page/presentation/mobile_view/sections/general_section.dart';
@@ -131,6 +132,23 @@ class MobileView extends StatelessWidget {
                 isMobileView: true,
                 onPressed: () {
                   BaseFunctions.scrollTo(
+                    mobileBlogsSectionKey.currentContext!,
+                  );
+                  AnalyticsService.logEvent(
+                    Constants.blogsClicked,
+                    {"view": Constants.mobileDrawerView},
+                  );
+                  scaffoldKeyMobile.currentState?.closeEndDrawer();
+                },
+                text: LocaleKeys.blogs.tr(),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: ActionButton(
+                isMobileView: true,
+                onPressed: () {
+                  BaseFunctions.scrollTo(
                     mobileGetInTouchSectionKey.currentContext!,
                   );
                   AnalyticsService.logEvent(
@@ -142,6 +160,7 @@ class MobileView extends StatelessWidget {
                 text: LocaleKeys.contact.tr(),
               ),
             ),
+            const SizedBox(height: 16),
             Divider(
               height: 0,
               thickness: 1,
@@ -305,6 +324,10 @@ class MobileView extends StatelessWidget {
             SliverToBoxAdapter(
               key: mobileProjectsSectionKey,
               child: ProjectsSection(list: state.projectCollection),
+            ),
+            SliverToBoxAdapter(
+              key: mobileBlogsSectionKey,
+              child: BlogsSection(list: state.blogCollection),
             ),
             SliverToBoxAdapter(
               key: mobileGetInTouchSectionKey,

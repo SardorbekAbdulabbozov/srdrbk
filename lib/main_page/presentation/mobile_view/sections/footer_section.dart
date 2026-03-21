@@ -18,91 +18,88 @@ class FooterSection extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Container(
       width: size.width,
-      padding: const EdgeInsets.symmetric(vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       color: BaseFunctions.isDarkMode(context)
-          ? AppColors.grayDarkDefault
-          : AppColors.grayLightDefault,
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: SvgPicture.asset(
-                  'assets/vectors/copyright.svg',
-                  width: 16,
-                  height: 16,
-                  colorFilter: ColorFilter.mode(
-                    BaseFunctions.isDarkMode(context)
-                        ? AppColors.grayDark600
-                        : AppColors.grayLight600,
-                    BlendMode.srcIn,
-                  ),
-                ),
+          ? AppColors.grayDark50
+          : AppColors.grayLight50,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: SvgPicture.asset(
+              'assets/vectors/copyright.svg',
+              width: 16,
+              height: 16,
+              colorFilter: ColorFilter.mode(
+                BaseFunctions.isDarkMode(context)
+                    ? AppColors.grayDark600
+                    : AppColors.grayLight600,
+                BlendMode.srcIn,
               ),
-              RichText(
-                text: TextSpan(
-                  text: '${DateTime.now().year} | Designed by ',
-                  style: AppTextStyles.allBody3Normal.copyWith(
-                    color: BaseFunctions.isDarkMode(context)
-                        ? AppColors.grayDark600
-                        : AppColors.grayLight600,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: 'Sagar Shah',
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          html.window.open(
-                            'https://www.figma.com/@shahsagarm',
-                            "_blank",
-                          );
-                          AnalyticsService.logEvent(
-                            Constants.sagarShahClicked,
-                            {"view": Constants.mobileFooter},
-                          );
-                        },
-                      style: AppTextStyles.allBody3Normal.copyWith(
-                        color: BaseFunctions.isDarkMode(context)
-                            ? AppColors.grayDark600
-                            : AppColors.grayLight600,
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                    TextSpan(
-                      text: ', Developed by ',
-                      style: AppTextStyles.allBody3Normal.copyWith(
-                        color: BaseFunctions.isDarkMode(context)
-                            ? AppColors.grayDark600
-                            : AppColors.grayLight600,
-                      ),
-                    ),
-                    TextSpan(
-                      text: 'Sardorbek Abdulabbozov',
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          html.window.open(linkedinUrl, "_blank");
-                          AnalyticsService.logEvent(
-                            Constants.linkedinClicked,
-                            {"view": Constants.mobileFooter},
-                          );
-                        },
-                      style: AppTextStyles.allBody3Normal.copyWith(
-                        color: BaseFunctions.isDarkMode(context)
-                            ? AppColors.grayDark600
-                            : AppColors.grayLight600,
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
+          Flexible(
+            child: RichText(
+              textAlign: TextAlign.center,
+              text: TextSpan(
+                text: '${DateTime.now().year} | Designed by ',
+                style: AppTextStyles.allBody3Normal.copyWith(
+                  color: BaseFunctions.isDarkMode(context)
+                      ? AppColors.grayDark600
+                      : AppColors.grayLight600,
+                ),
+                children: [
+                  TextSpan(
+                    text: 'Sagar Shah',
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        html.window.open(
+                          'https://www.figma.com/@shahsagarm',
+                          "_blank",
+                        );
+                        AnalyticsService.logEvent(
+                          Constants.sagarShahClicked,
+                          {"view": Constants.mobileFooter},
+                        );
+                      },
+                    style: AppTextStyles.allBody3Normal.copyWith(
+                      color: BaseFunctions.isDarkMode(context)
+                          ? AppColors.grayDark600
+                          : AppColors.grayLight600,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                  TextSpan(
+                    text: ', Developed by ',
+                    style: AppTextStyles.allBody3Normal.copyWith(
+                      color: BaseFunctions.isDarkMode(context)
+                          ? AppColors.grayDark600
+                          : AppColors.grayLight600,
+                    ),
+                  ),
+                  TextSpan(
+                    text: 'Sardorbek Abdulabbozov',
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        html.window.open(linkedinUrl, "_blank");
+                        AnalyticsService.logEvent(
+                          Constants.linkedinClicked,
+                          {"view": Constants.mobileFooter},
+                        );
+                      },
+                    style: AppTextStyles.allBody3Normal.copyWith(
+                      color: BaseFunctions.isDarkMode(context)
+                          ? AppColors.grayDark600
+                          : AppColors.grayLight600,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

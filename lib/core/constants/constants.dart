@@ -2,10 +2,12 @@ class Constants {
   static const String info = "info";
   static const String experience = "experience";
   static const String project = "project";
+  static const String blog = "blog";
 
   static const String generalClicked = "General_Clicked";
   static const String aboutClicked = "About_Clicked";
   static const String projectsClicked = "Projects_Clicked";
+  static const String blogsClicked = "Blogs_Clicked";
   static const String contactClicked = "Contact_Clicked";
   static const String cvClicked = "CV_Clicked";
   static const String githubClicked = "GitHub_Profile_Clicked";
@@ -18,12 +20,14 @@ class Constants {
 
   static const String desktopGeneral = "Desktop/General";
   static const String desktopProjects = "Desktop/Projects";
+  static const String desktopBlogs = "Desktop/Blogs";
   static const String desktopContact = "Desktop/Contact";
   static const String desktopFooter = "Desktop/Footer";
   static const String desktopAppBarView = "Desktop/AppBar";
 
   static const String mobileGeneral = "Mobile(or Tablet)/General";
   static const String mobileProjects = "Mobile(or Tablet)/Projects";
+  static const String mobileBlogs = "Mobile(or Tablet)/Blogs";
   static const String mobileContact = "Mobile(or Tablet)/Contact";
   static const String mobileFooter = "Mobile(or Tablet)/Footer";
   static const String mobileAppBarView = "Mobile(or Tablet)/AppBar";

@@ -6,6 +6,7 @@ class MainPageState extends Equatable {
     this.isLoading = false,
     this.experienceCollection = const [],
     this.projectCollection = const [],
+    this.blogCollection = const [],
     this.info,
   });
 
@@ -13,6 +14,7 @@ class MainPageState extends Equatable {
   final bool isLoading;
   final List<Experience> experienceCollection;
   final List<Project> projectCollection;
+  final List<Blog> blogCollection;
   final Info? info;
 
   MainPageState copyWith({
@@ -20,6 +22,7 @@ class MainPageState extends Equatable {
     bool? isLoading,
     List<Experience>? experienceCollection,
     List<Project>? projectCollection,
+    List<Blog>? blogCollection,
     Info? info,
   }) {
     return MainPageState(
@@ -27,6 +30,7 @@ class MainPageState extends Equatable {
       isLoading: isLoading ?? this.isLoading,
       experienceCollection: experienceCollection ?? this.experienceCollection,
       projectCollection: projectCollection ?? this.projectCollection,
+      blogCollection: blogCollection ?? this.blogCollection,
       info: info ?? this.info,
     );
   }
@@ -37,6 +41,7 @@ class MainPageState extends Equatable {
         isLoading,
         experienceCollection,
         projectCollection,
+        blogCollection,
         info,
       ];
 }
