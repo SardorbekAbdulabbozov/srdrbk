@@ -13,7 +13,6 @@ import 'package:srdrbk/core/config/localization/locale_keys.g.dart';
 import 'package:srdrbk/core/theme/colors/app_colors.dart';
 import 'package:srdrbk/core/theme/text_styles/app_text_styles.dart';
 import 'package:srdrbk/main_page/bloc/main_page_bloc.dart';
-import 'package:srdrbk/main_page/presentation/mobile_view/sections/about_me_section.dart';
 import 'package:srdrbk/main_page/presentation/mobile_view/sections/blogs_section.dart';
 import 'package:srdrbk/main_page/presentation/mobile_view/sections/experience_section.dart';
 import 'package:srdrbk/main_page/presentation/mobile_view/sections/footer_section.dart';
@@ -98,15 +97,15 @@ class MobileView extends StatelessWidget {
                 isMobileView: true,
                 onPressed: () {
                   BaseFunctions.scrollTo(
-                    mobileAboutMeSectionKey.currentContext!,
+                    mobileBlogsSectionKey.currentContext!,
                   );
                   AnalyticsService.logEvent(
-                    Constants.aboutClicked,
+                    Constants.blogsClicked,
                     {"view": Constants.mobileDrawerView},
                   );
                   scaffoldKeyMobile.currentState?.closeEndDrawer();
                 },
-                text: LocaleKeys.about.tr(),
+                text: LocaleKeys.blogs.tr(),
               ),
             ),
             Padding(
@@ -124,23 +123,6 @@ class MobileView extends StatelessWidget {
                   scaffoldKeyMobile.currentState?.closeEndDrawer();
                 },
                 text: LocaleKeys.projects.tr(),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-              child: ActionButton(
-                isMobileView: true,
-                onPressed: () {
-                  BaseFunctions.scrollTo(
-                    mobileBlogsSectionKey.currentContext!,
-                  );
-                  AnalyticsService.logEvent(
-                    Constants.blogsClicked,
-                    {"view": Constants.mobileDrawerView},
-                  );
-                  scaffoldKeyMobile.currentState?.closeEndDrawer();
-                },
-                text: LocaleKeys.blogs.tr(),
               ),
             ),
             Padding(
@@ -311,11 +293,8 @@ class MobileView extends StatelessWidget {
               child: GeneralSection(info: state.info),
             ),
             SliverToBoxAdapter(
-              key: mobileAboutMeSectionKey,
-              child: AboutMeSection(
-                aboutMe: state.info?.overview,
-                secondaryPhoto: state.info?.secondaryPhoto,
-              ),
+              key: mobileBlogsSectionKey,
+              child: BlogsSection(list: state.blogCollection),
             ),
             const SliverToBoxAdapter(child: SkillsSection()),
             SliverToBoxAdapter(
@@ -324,10 +303,6 @@ class MobileView extends StatelessWidget {
             SliverToBoxAdapter(
               key: mobileProjectsSectionKey,
               child: ProjectsSection(list: state.projectCollection),
-            ),
-            SliverToBoxAdapter(
-              key: mobileBlogsSectionKey,
-              child: BlogsSection(list: state.blogCollection),
             ),
             SliverToBoxAdapter(
               key: mobileGetInTouchSectionKey,
