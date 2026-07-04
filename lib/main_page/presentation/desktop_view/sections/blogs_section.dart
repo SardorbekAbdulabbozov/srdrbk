@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:srdrbk/components/widgets/signature_widget.dart';
 import 'package:srdrbk/core/analytics/analytics_service.dart';
 import 'package:srdrbk/core/base_functions/base_functions.dart';
 import 'package:srdrbk/core/config/localization/locale_keys.g.dart';
@@ -129,25 +130,27 @@ class _BlogCard extends StatelessWidget {
                       ? CachedNetworkImage(
                           imageUrl: blog.image!,
                           fit: BoxFit.cover,
-                          placeholder: (_, __) => Container(
-                            color: BaseFunctions.isDarkMode(context)
-                                ? AppColors.grayDark200
-                                : AppColors.grayLight200,
-                            child: Center(
-                              child: SizedBox(
-                                width: 20,
-                                height: 20,
-                                child: CircularProgressIndicator(
-                                  strokeWidth: 2,
-                                  color: BaseFunctions.isDarkMode(context)
-                                      ? AppColors.grayDark600
-                                      : AppColors.grayLight600,
-                                ),
-                              ),
-                            ),
-                          ),
-                          errorWidget: (_, __, ___) =>
-                              _buildPlaceholderImage(context),
+                          // placeholder: (_, __) => Container(
+                          //   color: BaseFunctions.isDarkMode(context)
+                          //       ? AppColors.grayDark200
+                          //       : AppColors.grayLight200,
+                          //   child: Center(
+                          //     child: SizedBox(
+                          //       width: 20,
+                          //       height: 20,
+                          //       child: CircularProgressIndicator(
+                          //         strokeWidth: 2,
+                          //         color: BaseFunctions.isDarkMode(context)
+                          //             ? AppColors.grayDark600
+                          //             : AppColors.grayLight600,
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
+                          // errorWidget: (_, __, ___) =>
+                          //     _buildPlaceholderImage(context),
+                          errorWidget: (_, __, ___) => const SignatureWidget(),
+                          placeholder: (_, __) => const SignatureWidget(),
                         )
                       : _buildPlaceholderImage(context),
                 ),
