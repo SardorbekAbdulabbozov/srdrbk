@@ -24,8 +24,8 @@ class GetInTouchSection extends StatelessWidget {
       width: size.width,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 96),
       color: BaseFunctions.isDarkMode(context)
-          ? AppColors.grayDarkDefault
-          : AppColors.grayLightDefault,
+          ? AppColors.grayDark50
+          : AppColors.grayLight50,
       child: Column(
         children: [
           Chip(
@@ -122,8 +122,8 @@ class GetInTouchSection extends StatelessWidget {
                         style: ButtonStyle(
                           backgroundColor: WidgetStatePropertyAll(
                             BaseFunctions.isDarkMode(context)
-                                ? AppColors.grayDarkDefault
-                                : AppColors.grayLightDefault,
+                                ? AppColors.grayDark50
+                                : AppColors.grayLight50,
                           ),
                         ),
                         icon: SvgPicture.asset(
@@ -211,8 +211,8 @@ class GetInTouchSection extends StatelessWidget {
                         style: ButtonStyle(
                           backgroundColor: WidgetStatePropertyAll(
                             BaseFunctions.isDarkMode(context)
-                                ? AppColors.grayDarkDefault
-                                : AppColors.grayLightDefault,
+                                ? AppColors.grayDark50
+                                : AppColors.grayLight50,
                           ),
                         ),
                         icon: SvgPicture.asset(
@@ -251,8 +251,8 @@ class GetInTouchSection extends StatelessWidget {
                 style: ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll(
                     BaseFunctions.isDarkMode(context)
-                        ? AppColors.grayDarkDefault
-                        : AppColors.grayLightDefault,
+                        ? AppColors.grayDark50
+                        : AppColors.grayLight50,
                   ),
                 ),
                 onPressed: () {
@@ -279,8 +279,8 @@ class GetInTouchSection extends StatelessWidget {
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(
                       BaseFunctions.isDarkMode(context)
-                          ? AppColors.grayDarkDefault
-                          : AppColors.grayLightDefault,
+                          ? AppColors.grayDark50
+                          : AppColors.grayLight50,
                     ),
                   ),
                   onPressed: () {
@@ -306,8 +306,8 @@ class GetInTouchSection extends StatelessWidget {
                 style: ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll(
                     BaseFunctions.isDarkMode(context)
-                        ? AppColors.grayDarkDefault
-                        : AppColors.grayLightDefault,
+                        ? AppColors.grayDark50
+                        : AppColors.grayLight50,
                   ),
                 ),
                 onPressed: () {
@@ -334,8 +334,8 @@ class GetInTouchSection extends StatelessWidget {
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(
                       BaseFunctions.isDarkMode(context)
-                          ? AppColors.grayDarkDefault
-                          : AppColors.grayLightDefault,
+                          ? AppColors.grayDark50
+                          : AppColors.grayLight50,
                     ),
                   ),
                   onPressed: () {

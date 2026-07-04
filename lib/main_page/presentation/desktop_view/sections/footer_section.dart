@@ -20,8 +20,8 @@ class FooterSection extends StatelessWidget {
       width: size.width,
       padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 24),
       color: BaseFunctions.isDarkMode(context)
-          ? AppColors.grayDark50
-          : AppColors.grayLight50,
+          ? AppColors.grayDarkDefault
+          : AppColors.grayLightDefault,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
